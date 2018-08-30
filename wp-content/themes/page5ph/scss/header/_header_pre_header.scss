@@ -1,0 +1,15 @@
+@media screen {
+  .header-pre-header{
+    display: inline-block;
+    .header-center-logo{
+      @media (min-width: 992px) {
+        text-align: center;
+      }
+    }
+    .header-media-search{
+      @media (min-width: 992px) {
+        text-align: right;
+      }
+    }
+  }
+}

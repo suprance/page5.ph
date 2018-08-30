@@ -1,0 +1,71 @@
+@mixin flexDisplay(){
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flexAlign($align: auto){
+  -ms-align-self: $align;
+  align-self: $align;
+}
+
+@mixin backgroundDefault( $size: cover, $position: 50%, $repeat: no-repeat ){
+  background-size: $size;
+  background-position: $position;
+  background-repeat: $repeat;
+}
+
+@mixin transition( $transition: 0.4s ) {
+  -webkit-transition: all $transition;
+  -ms-transition: all $transition;
+  -o-transition: all $transition;
+  transition: all $transition;
+}
+
+@mixin oInline( $alignment: middle ) {
+  display: inline-block;
+  float: none;
+  vertical-align: $alignment; 
+}
+
+@mixin borderRadius( $radius ) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+}
+
+@mixin bgTransparent( $red, $green, $blue, $opacity ) {
+  background: rgba($red, $green, $blue, $opacity);
+}
+
+@mixin dgInline( $width:"", $alignment:middle ) {
+  display: inline-block;
+    vertical-align: $alignment;
+    float: none;
+    margin: 0 -2px;
+
+  @if $width != "" {
+      width: $width;
+  } 
+}
+
+@mixin dgFloat($position:left, $width:"") {
+  float: $position;
+  width: $width;
+}
+
+@mixin boxShadow( $left, $top, $spread, $distance, $color, $set:"") {
+
+  @if $set == true {
+    $set: inset;
+  }
+  @else {
+    $set: '';
+  }
+
+  -webkit-box-shadow: $left $top $spread $distance $color $set;
+  -ms-box-shadow: $left $top $spread $distance $color $set;
+  -o-box-shadow: $left $top $spread $distance $color $set;
+  box-shadow: $left $top $spread $distance $color $set;
+}
+

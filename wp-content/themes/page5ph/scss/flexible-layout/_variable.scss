@@ -1,0 +1,53 @@
+@import 'fonts-list/font-notosans';
+
+// // FONTS
+$font-ns-black: 'noto_sansblack';
+$font-ns-bold: 'noto_sansbold';
+$font-ns-xbold: 'noto_sansextrabold';
+$font-ns-xlight: 'noto_sansextralight';
+$font-ns-italic: 'noto_sansitalic';
+$font-ns-light: 'noto_sanslight';
+$font-ns-medium: 'noto_sansmedium';
+$font-ns: 'noto_sansregular';
+$font-ns-thin: 'noto_sansthin';
+$font-ns-sbold: 'noto_sanssemibold';
+
+
+// COLORS
+//## Gengo related colors
+$gengo-gray:            #4d4843 !default;
+$gengo-gray-light:      #a6a3a1 !default;
+$gengo-blue:            #98d7cc !default;
+$gengo-green:           #1cad7e !default;
+$gengo-lemon:           #c3ea94 !default;
+$gengo-lgreen:          #aedbb3 !default;
+$gengo-beige:           #f1f2c8 !default;
+$gengo-yellow:          #e0da79 !default;
+$gengo-red:             #ea5e47 !default;
+$gengo-red2:            #E55F3F !default;
+$gengo-light-blue:      #96D7CC !default;
+$gengo-lime-green:      #c3ea94 !default;
+$gengo-light-green:     #aedbb3 !default;
+$gengo-light-green2:    #7DB4A9 !default;
+
+$gray-darker:           lighten($gengo-gray, 13.5%) !default;
+$gray-dark:             lighten($gengo-gray, 20%) !default;
+$gray:                  lighten($gengo-gray, 33.5%) !default;
+$gray-light:            lighten($gengo-gray, 60%) !default;
+$gray-lighter:          lighten($gengo-gray, 93.5%) !default;
+
+$brand-primary:         $gengo-green !default;
+$brand-success:         $gengo-lgreen !default;
+$brand-info:            $gengo-gray !default;
+$brand-warning:         #e5d369 !default;
+$brand-danger:          $gengo-red !default;
+$brand-lime-green:      $gengo-lime-green !default;
+$brand-light-green:     $gengo-light-green !default;
+$brand-light-blue:      $gengo-light-blue !default;
+
+
+$brand-customer:        $gengo-green !default;
+$brand-translator:      $gengo-blue !default;
+$brand-developer:       $gengo-red !default;
+$brand-admin:           $gengo-gray !default;
+$brand-workbench:       $gengo-gray !default;
