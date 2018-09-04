@@ -186,10 +186,11 @@ function page5ph_scripts() {
   // list here all the css
   wp_enqueue_style( 'page5ph-style', get_template_directory_uri() . '/css/style.css', array() );
   wp_enqueue_style( 'page5ph-bootstrap', get_template_directory_uri() . '/js/bootstrap/bootstrap.css', array(), '2018' );
-  wp_enqueue_style( 'page5ph-font-awesome', get_template_directory_uri() . '/css/font-awesome.mins.css', array() );
+  wp_enqueue_style( 'page5ph-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '2018');
 
   // list here all the js
   wp_enqueue_script( 'page5ph-jquery', get_template_directory_uri() . '/js/jquery.min.js', array('jquery'), false );
+  wp_enqueue_script( 'page5ph-main-js', get_template_directory_uri() . '/js/main.js', array('jquery'), false );
   wp_enqueue_script( 'page5ph-popper', get_template_directory_uri() . '/js//bootstrap/popper.min.js', array('jquery'), false );
   wp_enqueue_script( 'page5ph-bootstrap-js', get_template_directory_uri() . '/js//bootstrap/bootstrap.min.js', array('jquery'), false );
 }

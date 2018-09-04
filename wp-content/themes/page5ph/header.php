@@ -24,22 +24,13 @@
 <div id="page" class="site">
   <!-- get advertisement -->
   <?php include_once('template-parts/header/header-adver.php'); ?>
-  <!-- get pre header -->
   <header id="masthead" class="site-header">
+    <!-- get pre header -->
     <?php include_once('template-parts/header/header-pre-header.php'); ?>
-
-    <nav id="site-navigation" class="main-navigation">
-      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'page5ph' ); ?></button>
-      <?php
-      wp_nav_menu( array(
-        'theme_location' => 'menu-1',
-        'menu_id'        => 'primary-menu',
-      ) );
-      ?>
-    </nav><!-- #site-navigation -->
+    <!-- get header menu -->
+    <?php include_once('template-parts/header/header-menu.php'); ?>
   </header><!-- #masthead -->
 
   <div id="content" class="site-content">
-
-
-    this is a test
+    <!-- get header banner -->
+    <?php include_once('template-parts/header/header-banner.php'); ?>
