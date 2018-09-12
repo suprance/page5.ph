@@ -1,9 +1,23 @@
 @media screen {
   .header-pre-header{
     padding: 24px 0;
+    .site-branding{
+      text-align: center;
+      @media (min-width: 992px){
+        text-align: left;
+      }
+      img{
+        height: auto;
+        max-width: 264px;
+        width: 100%;
+      }
+    }
     .header-center-logo{
-      @media (min-width: 992px) {
-        text-align: center;
+      text-align: center;
+      img{
+        height: auto;
+        max-width: 382px;
+        width: 100%;
       }
     }
     .header-fb-search{

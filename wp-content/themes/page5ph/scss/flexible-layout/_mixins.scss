@@ -3,6 +3,14 @@
   flex-wrap: wrap;
 }
 
+@mixin linkdeconone(){
+  color: #fff;
+  &:hover{
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
 @mixin flexAlign($align: auto){
   -ms-align-self: $align;
   align-self: $align;

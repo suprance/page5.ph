@@ -1,1 +1,35 @@
-@import "header/header.scss";
+
+@import "flexible-layout/mixins";
+@import "flexible-layout/variable";
+
+@media screen {
+  @import "header/header";
+  @import "flexible-layout/page-layout";
+  @import "footer";
+
+  // hide & visible
+  .hide{
+    display: none !important;
+  }
+  .hide-sm{
+    @media (max-width: 767px){
+      display: none !important;
+    }
+  }
+  .hide-md{
+    @media (max-width: 991px) and (min-width: 768px) {
+      display: none !important;
+    }
+  }
+  .visible-sm{
+    display: block !important;
+    @media (min-width: 768px){
+      display: none !important;
+    }
+  }
+  .visible-md{
+    @media (max-width: 991px) and (min-width: 768px) {
+      display: block !important;
+    }
+  }
+}

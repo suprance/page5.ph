@@ -1,21 +1,20 @@
+<?php
+  $mainLogo = (get_field('h_main_logo', 'option') ? get_field('h_main_logo', 'option')['url'] : imgfolder('no_image.png') );
+  $middleLogo = (get_field('h_middle_logo', 'option') ? get_field('h_middle_logo', 'option')['url'] : imgfolder('no_image.png') );
+?>
 <div class="container-fluid header-pre-header">
   <div class="row">
-    <div class="col-3">
+    <div class="col-sm-12 col-md-12 col-lg-3">
       <div class="site-branding">
-        <?php the_custom_logo();
-        if ( is_front_page() && is_home() ) { ?>
-          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="/wp-content/uploads/2018/09/page5php_logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
-          <?php } else { ?>
-          <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-          <?php } ?>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php _e($mainLogo); ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-sm-12 col-md-12 col-lg-6">
       <div class="header-center-logo">
-        <img src="/wp-content/uploads/2018/09/the_source_for_influencer.png" alt="THE SOURCE FOR INFLUENCER BUZZ">
+        <img src="<?php _e($middleLogo); ?>" alt="">
       </div>
     </div>
-    <div class="col-3">
+    <div class="col-sm-12 col-md-12 col-lg-3 hide-sm hide-md">
       <div class="header-fb-search">
         <div class="header-fb hidden"><i class="fa fa-facebook-official" aria-hidden="true"></i><?php echo fb_like_button(); ?></div>
         <div class="search">

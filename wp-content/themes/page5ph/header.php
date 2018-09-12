@@ -32,5 +32,3 @@
   </header><!-- #masthead -->
 
   <div id="content" class="site-content">
-    <!-- get header banner -->
-    <?php include_once('template-parts/header/header-banner.php'); ?>

@@ -7,7 +7,9 @@
  * @package 5pageph
  */
 
-//=============== ACF PRO OPTIONS v2
+/**
+ * Adding Theme Settings
+ */
   if( function_exists('acf_add_options_page') ) {
     // MAIN OPTION PAGE
     $parent = acf_add_options_page(array(
@@ -23,7 +25,9 @@
     ));
   }
 
-//=============== REMOVE PLUGIN UPDATES
+/**
+ * REMOVE PLUGIN UPDATES
+ */
   add_action('after_setup_theme','remove_core_updates');
   function remove_core_updates()
   {
@@ -36,36 +40,63 @@
   remove_action('load-update-core.php','wp_update_plugins');
   add_filter('pre_site_transient_update_plugins','__return_null');
 
-//=============== PRE TAG ===============//
+/**
+ * PRE TAG
+ */
   function pre($var){
     echo '<pre>'.var_export( $var, true ).'</pre>';
   }
 
-//=============== Friendly Block Titles
-  function my_layout_title($title, $field, $layout, $i) {
-    if($value = get_sub_field('layout_title')) {
-      return $value;
-    } else {
-      foreach($layout['sub_fields'] as $sub) {
-        if($sub['name'] == 'layout_title') {
-          $key = $sub['key'];
-          if(array_key_exists($i, $field['value']) && $value = $field['value'][$i][$key])
-            return $value;
-        }
-      }
-    }
-    return $title;
-  }
-  add_filter('acf/fields/flexible_content/layout_title', 'my_layout_title', 10, 4);
-
-//=============== REMOVE GUTENBERG
+/**
+ * REMOVE GUTENBERG
+ */
   add_filter('gutenberg_can_edit_post_type', '__return_false');
 
-//=============== IMAGE FUNCTION
+/**
+ * shortcut img folder
+ */
 function imgfolder($name){
   return get_stylesheet_directory_uri().'/images/common/'.$name;
 }
 
+// function excerpt($num, $postID) {
+//     $limit = $num+1;
+//     $excerpt = explode(' ', get_the_excerpt(), $limit);
+//     array_pop($excerpt);
+//     $excerpt = implode(" ",$excerpt)."...";
+//     echo $excerpt;
+// }
+
+// function robins_get_the_excerpt($post_id) {
+//   global $post;  
+//   $save_post = $post;
+//   $post = get_post($post_id);
+//   $output = get_the_excerpt();
+//   $post = $save_post;
+//   return $output;
+// }
+
+/**
+ * Filter the except length to 13 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+// function custom_excerpt_length( $length ) {
+//   return 13;
+// }
+// add_filter( 'excerpt_length', 'custom_excerpt_length', 200 );
+
+/**
+ * Filter the excerpt "read more" string.
+ *
+ * @param string $more "Read more" excerpt string.
+ * @return string (Maybe) modified "read more" excerpt string.
+ */
+function wpdocs_excerpt_more( $more ) {
+    return '....';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 
 define( 'ADVANCED_ADS_AD_DEBUG_FOR_ADMIN_ONLY', true );
@@ -108,6 +139,7 @@ if ( ! function_exists( 'page5ph_setup' ) ) :
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
       'menu-1' => esc_html__( 'Primary', 'page5ph' ),
+      'footer-menu' => esc_html__( 'Footer menu' ),
     ) );
 
     /*
@@ -187,12 +219,15 @@ function page5ph_scripts() {
   wp_enqueue_style( 'page5ph-style', get_template_directory_uri() . '/css/style.css', array() );
   wp_enqueue_style( 'page5ph-bootstrap', get_template_directory_uri() . '/js/bootstrap/bootstrap.css', array(), '2018' );
   wp_enqueue_style( 'page5ph-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '2018');
+  wp_enqueue_style( 'page5ph-slick', get_template_directory_uri() . '/css/slick.css', array(), '2018');
+  wp_enqueue_style( 'page5ph-slick-theme', get_template_directory_uri() . '/css/slick-theme.css', array(), '2018');
 
   // list here all the js
   wp_enqueue_script( 'page5ph-jquery', get_template_directory_uri() . '/js/jquery.min.js', array('jquery'), false );
   wp_enqueue_script( 'page5ph-main-js', get_template_directory_uri() . '/js/main.js', array('jquery'), false );
-  wp_enqueue_script( 'page5ph-popper', get_template_directory_uri() . '/js//bootstrap/popper.min.js', array('jquery'), false );
-  wp_enqueue_script( 'page5ph-bootstrap-js', get_template_directory_uri() . '/js//bootstrap/bootstrap.min.js', array('jquery'), false );
+  wp_enqueue_script( 'page5ph-popper', get_template_directory_uri() . '/js/bootstrap/popper.min.js', array('jquery'), false );
+  wp_enqueue_script( 'page5ph-bootstrap-js', get_template_directory_uri() . '/js/bootstrap/bootstrap.min.js', array('jquery'), false );
+  wp_enqueue_script( 'page5ph-slick-js', get_template_directory_uri() . '/js/slickjs/slick.min.js', array('jquery'), false );
 }
 add_action( 'wp_enqueue_scripts', 'page5ph_scripts' );
 
@@ -215,6 +250,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Include Gengo Advanced Custom Fields Settings
+ */
+include_once('lib/gengo-acf.php');
 
 /**
  * Load Jetpack compatibility file.

@@ -65,7 +65,7 @@
         }
         & > strong{
           font-weight: 600;
-          color: $gengo-gray;
+          color: red;
           &.quote{
             font-size: 28px;
             @media (min-width: 992px){
@@ -487,130 +487,6 @@
               font-size: 15px;
               line-height: 27px;
               letter-spacing: 0;
-            }
-          }
-        }
-      }
-    }
-    &-flexibox{
-      .layout-background{
-        @media (min-width: 992px){
-          padding: 60px 0;
-        }
-      }
-      .cust-top .cust-logos .cust-logo-big{
-        img{
-          margin: 0;
-        }
-      }
-      .squote{
-        p{
-          font-size: 15px;
-          line-height: 20px;
-          span{
-            color: $gengo-green;
-          }
-        }
-      }
-      .customer-details{
-        position: absolute;
-        bottom: 32px;
-        left: 32px;
-        .sname{
-          font-size: 12px;
-          font-weight: bold;
-          color: $gengo-gray;
-        }
-        .sposition{
-          font-size: 12px;
-          color: $gengo-gray;
-        }
-      }
-      .button-holder{
-        text-align: center;
-        a{
-          width: 223px;
-          display: inline-block;
-          box-shadow: 2px 2px 6px 0 rgba(77, 72, 67, 0.5);
-          color: #fff;
-          background-color: #1cad7e;
-          text-align: center;
-          line-height: 1;
-          padding: 14px;
-          border-radius: 2px;
-          font-size: 14px;
-          font-weight: 600;
-          @include transition();
-          text-decoration: none;
-          @media(min-width: 768px){
-            width: auto;
-            min-width: 190px;
-          }
-          @media (min-width: 992px){
-            min-width: 223px;
-          }
-          &:hover{
-            background-color: #15815e;
-            border-color: transparent;
-          }
-          &+a{
-            margin-top: 15px;
-            @media (min-width: 768px){
-              margin-top: 0;
-              margin-left: 10px;
-            }
-            @media (min-width: 992px){
-              margin-left: 20px;
-            }
-            @media (min-width: 1200px){
-              margin-left: 30px;
-            }
-          }
-          &.white{
-            background-color: #fff;
-            color: #4d4843;
-            &:hover{
-              background-color: #e8e8e8;
-              color: #4d4843;
-            }
-          }
-          &.link{
-            background-color: transparent;
-            box-shadow: none;
-            color: #05ae7d;
-            font-size: 16px;
-            line-height: 28px;
-            position: relative;
-            &:hover{
-              color: #2e735c;
-              &::before{
-                background-color: #2e735c;
-              }
-              &::after{
-                border-left-color: #2e735c;
-              }
-            }
-            &::before{
-              content: '';
-              position: absolute;
-              height: 1px;
-              width: 8px;
-              background-color: #05ae7d;
-              top: 26.9px;
-              right: 0;
-              @include transition();
-            }
-            &::after{
-              content: '';
-              position: absolute;
-              height: 7px;
-              width: 4px;
-              border-top: 3.5px solid transparent;
-              border-bottom: 3.5px solid transparent;
-              border-left: 4px solid #05ae7d;
-              top: 23px;
-              right: -4px;
-              @include transition();
             }
           }
         }

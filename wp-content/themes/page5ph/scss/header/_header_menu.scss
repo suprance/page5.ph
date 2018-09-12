@@ -1,4 +1,24 @@
 .menu-primary-container{
+  position: relative;
+  height: 50px;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  .menu-site-branding{
+    display: none;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    position: absolute;
+    z-index: 2;
+    img{
+      width: 50%;
+      margin-top: 10px;
+      margin-left: 15px;
+    }
+  }
   .main-navigation{
     position: absolute;
     background-color: #000;
@@ -71,5 +91,91 @@
         }
       }
     }
+
+    &.mobile-button{
+      @media (max-width: 991px){
+        position: relative;
+        padding: 10px 0 6px 0;
+        .wholepanel{
+          display: none;
+          z-index: 2;
+          position: absolute;
+          text-align: center;
+          top: 50px;
+          height: auto;
+          color: #fff;
+          background-color: #000;
+          width: 100%;
+          padding-bottom: 10px;
+          -webkit-transition: all .4s ease-out;
+          -moz-transition: all .4s ease-out;
+          -ms-transition: all .4s ease-out;
+          -o-transition: all .4s ease-out;
+          transition: all .4s ease-out;
+          ul{
+            li{
+              display: block;
+              a{
+                float: none;
+                padding: 0;
+                margin: 0 50px;
+              }
+              .level1{
+                position: relative;
+                display: none;
+                &.active{
+                  display: block;
+                }
+              }
+              span{
+                &.parent-controls{
+                  font-size: 20px;
+                  -webkit-transition: all .4s ease-out;
+                  -moz-transition: all .4s ease-out;
+                  -ms-transition: all .4s ease-out;
+                  -o-transition: all .4s ease-out;
+                  transition: all .4s ease-out;}
+                &.sub-open{
+                  transform: rotate(180deg);
+                }
+              }
+            }
+          }
+        }
+        &.active{
+          display: block;
+        }
+        .mobile-menu-trigger{
+          width: 25px;
+          height: 30px;
+          margin: 0 40px 0 auto;
+          cursor: pointer;
+          span{
+            display: block;
+            background-color: #fff;
+            height: 2px;
+            margin: 6px 0;
+          }
+        }
+        &.active{
+          .wholepanel{
+            display: block;
+          }
+        }
+      }
+    }
   }
+  &.uni-nav-down{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    .menu-site-branding{
+      display: block;
+    }
+  }
+}
+
+.uni-nav-down + .site-content {
+  padding-top: 50px;
 }
