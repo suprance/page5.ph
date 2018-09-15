@@ -26,7 +26,7 @@
           $catPostLink = get_category_link($postcat[0]->cat_ID);
 
           if ( ! empty( $postcat ) ) {
-              $catPostName =  esc_html( $postcat[0]->name );
+            $catPostName = esc_html( $postcat[0]->name );
           }
 
           switch ($catPostName) {

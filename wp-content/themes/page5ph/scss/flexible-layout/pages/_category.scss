@@ -1,0 +1,59 @@
+.category{
+  .cat-name-holder{
+    h3{
+      padding: 40px 0;
+      font-family: 'oswald', sans-serif !important;
+    }
+    &.entertainment{
+      color: #4135bf;
+    }
+    &.travel{
+      color: #34BF51;
+    }
+    &.beauty{
+      color: #F21363;
+    }
+    &.parenting{
+      color: #F2C513;
+    }
+    &.tech{
+      color: #018FFF;
+    }
+  }
+  .cat-container{
+    margin-bottom: 45px;
+    .image-holder{
+      img{
+        width: 100%;
+        @media (min-width: 768px){
+          max-height: 250px;
+        }
+      }
+    }
+    .post-meta{
+      float: left;
+      font-size: 10px;
+      margin: 0px;
+      text-transform: uppercase;
+      float: left;
+      width: 100%;
+      font-style: normal;
+      line-height: 1.2;
+      padding: 15px 0;
+      span{
+        display: inline-block;
+        margin-right: 15px;
+        text-transform: capitalize;
+      }
+    }
+    h4{
+      font-family: 'oswald', sans-serif !important;
+      a{
+        color: #000;
+      }
+    }
+    .content-holder{
+      color: #A1A1A1;
+    }
+  }
+}

@@ -231,6 +231,74 @@ function page5ph_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'page5ph_scripts' );
 
+function get_current_url($strip = true) {
+  // filter function
+  static $filter;
+  if ($filter == null) {
+    $filter = function($input) use($strip) {
+      $input = str_ireplace(array(
+        "\0", '%00', "\x0a", '%0a', "\x1a", '%1a'), '', urldecode($input));
+      if ($strip) {
+        $input = strip_tags($input);
+      }
+
+      // or any encoding you use instead of utf-8
+      $input = htmlspecialchars($input, ENT_QUOTES, 'utf-8');
+
+      return trim($input);
+    };
+  }
+
+  return 'http'. (($_SERVER['SERVER_PORT'] == '443') ? 's' : '')
+      .'://'. $_SERVER['SERVER_NAME'] . $filter($_SERVER['REQUEST_URI']);
+}
+
+function get_paging_action() {
+  $remove = "/page/";
+  $url_string = strtok(get_current_url(),'?');
+  $string_pos = strpos($url_string, $remove);
+  if ($string_pos !== false) {
+      $new_action = substr($url_string, 0, $string_pos);
+  } else {
+      $new_action = $url_string;
+  }
+  $new_action = rtrim($new_action, '/');
+  return $new_action;
+}
+
+// Custom pagination
+function page5_pagination($pages = '') {
+
+  global $paged;
+  !empty($paged) ?: $paged = 1;
+
+  if($pages == '') {
+    global $wp_query;
+    $pages = $wp_query->max_num_pages;
+    $pages ?: 1;
+  }
+
+  $new_action = get_paging_action();
+
+  if(1 != $pages) {
+    echo '<!-- Pagination -->';
+    echo '<div class="col-sm-12">';
+      echo '<hr class="hidden-xs">';
+      echo '<form id="pagination" class="pagination" action="'.$_SERVER['REQUEST_URI'].'" method="post" onsubmit="paginationForm(this, \''.$new_action.'\');">';
+        previous_posts_link( '<img width="12" height="10" src="'.get_template_directory_uri().'/images/common/arrow-left.png" alt="Previous Posts">' );
+        echo '<input id="paged" maxlength="3" type="text" name="page" value="'.$paged.'" /> ';
+        echo '<span>';
+        if ($pages > 1) { echo 'of ' . $pages; }
+        echo ' page'; if ($pages > 1) { echo 's'; }
+        echo '</span>';
+        if ($pages > 1) {
+            next_posts_link( '<img width="12" height="10" src="'.get_template_directory_uri().'/images/common/arrow-right.png" alt="Next Posts">', $pages );
+        }
+      echo '</form>';
+    echo '</div><!-- Pagination END -->';
+  }
+}
+
 /**
  * Implement the Custom Header feature.
  */

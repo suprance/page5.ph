@@ -5,8 +5,12 @@
 @media screen {
   @import "header/header";
   @import "flexible-layout/page-layout";
+  @import "flexible-layout/pages/category";
   @import "footer";
 
+  body{
+    font-family: sans-serif;
+  }
   // hide & visible
   .hide{
     display: none !important;

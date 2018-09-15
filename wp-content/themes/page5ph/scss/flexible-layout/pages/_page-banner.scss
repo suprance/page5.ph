@@ -165,6 +165,8 @@
                 line-height: 10px;
                 padding: 4px 15px 4px !important;
                 letter-spacing: 0.2em;
+                text-transform: uppercase;
+                font-family: 'oswald', sans-serif !important;
                 @include linkdeconone();
                 &.entertainment{
                   background-color: #4135bf;
@@ -197,10 +199,10 @@
               }
               a{
                 @include linkdeconone();
+                font-family: 'oswald', sans-serif !important;
               }
             }
             .post-meta{
-              float: left;
               font-size: 10px;
               color: #fff;
               margin: 0px;

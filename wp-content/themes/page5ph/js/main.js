@@ -49,6 +49,49 @@ function mobileNavigation(){
   });
 }
 
+function getParameterByName( name, url ) {
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( url );
+  if( results == null )
+    return "";
+  else
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function getQuery(name){
+   if(name=(new RegExp('[?&amp;]'+encodeURIComponent(name)+'=([^&amp;]*)')).exec(window.location.href))
+        return decodeURIComponent(name[1]);
+}
+
+function getPageLang(){
+    var pathArray = window.location.pathname.split( '/' );
+    return pathArray[1];
+}
+
+function paginationForm(form, newAction) {
+  var newPage = document.getElementById("paged").value;
+  var lastChar = newAction.substr(-1);
+  var getAction = document.getElementById("pagination").getAttribute('action');
+  var splitter = getAction.split('=');
+  var transString = splitter.pop();
+  if (lastChar != '/') {
+    newAction = newAction + '/';
+  }
+  newAction = newAction + 'page/' + newPage + '/';
+  searchQuery = getParameterByName('s', window.location.href);
+  if (searchQuery != '') {
+    form.action = newAction.concat('?s=' + searchQuery);
+    if(transString === 'translator') {
+      form.action = form.action.concat('&post_type=' + transString);
+    }
+  } else {
+    form.action = newAction;
+  }
+  form.submit();
+}
+
 $(document).ready(function(){
   mobileNavigation();
 
