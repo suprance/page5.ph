@@ -30,8 +30,8 @@
           }
 
           switch ($catPostName) {
-            case 'Beauty & Fashion':
-              $catColor = 'beauty';
+            case 'Parenting':
+              $catColor = 'parenting';
               break;
 
             case 'Entertainment':
@@ -47,7 +47,7 @@
               break;
             
             default:
-              $catColor = 'parenting';
+              $catColor = 'beauty';
               break;
           }
           ?>

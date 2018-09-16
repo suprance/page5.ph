@@ -219,15 +219,26 @@ function page5ph_scripts() {
   wp_enqueue_style( 'page5ph-style', get_template_directory_uri() . '/css/style.css', array() );
   wp_enqueue_style( 'page5ph-bootstrap', get_template_directory_uri() . '/js/bootstrap/bootstrap.css', array(), '2018' );
   wp_enqueue_style( 'page5ph-font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '2018');
-  wp_enqueue_style( 'page5ph-slick', get_template_directory_uri() . '/css/slick.css', array(), '2018');
-  wp_enqueue_style( 'page5ph-slick-theme', get_template_directory_uri() . '/css/slick-theme.css', array(), '2018');
 
   // list here all the js
   wp_enqueue_script( 'page5ph-jquery', get_template_directory_uri() . '/js/jquery.min.js', array('jquery'), false );
   wp_enqueue_script( 'page5ph-main-js', get_template_directory_uri() . '/js/main.js', array('jquery'), false );
   wp_enqueue_script( 'page5ph-popper', get_template_directory_uri() . '/js/bootstrap/popper.min.js', array('jquery'), false );
   wp_enqueue_script( 'page5ph-bootstrap-js', get_template_directory_uri() . '/js/bootstrap/bootstrap.min.js', array('jquery'), false );
-  wp_enqueue_script( 'page5ph-slick-js', get_template_directory_uri() . '/js/slickjs/slick.min.js', array('jquery'), false );
+
+  // only activate in homepage
+  if (is_front_page() || is_home()) {
+    wp_enqueue_style( 'page5ph-slick', get_template_directory_uri() . '/css/slick.css', array(), '2018');
+    wp_enqueue_style( 'page5ph-slick-theme', get_template_directory_uri() . '/css/slick-theme.css', array(), '2018');
+    wp_enqueue_script( 'page5ph-slick-js', get_template_directory_uri() . '/js/slickjs/slick.min.js', array('jquery'), false );
+  }
+
+  // only activate in happenings page
+  if (is_page('happenings')) {
+    wp_enqueue_style( 'page5ph-owl-carousel-css', get_template_directory_uri() . '/css/owl.carousel.css', array(), '2018' );
+    wp_enqueue_script( 'page5ph-owl-carousel-js', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), true );
+  }
+  
 }
 add_action( 'wp_enqueue_scripts', 'page5ph_scripts' );
 
@@ -238,10 +249,7 @@ function get_current_url($strip = true) {
     $filter = function($input) use($strip) {
       $input = str_ireplace(array(
         "\0", '%00', "\x0a", '%0a', "\x1a", '%1a'), '', urldecode($input));
-      if ($strip) {
-        $input = strip_tags($input);
-      }
-
+      $input = (!$strip ?: strip_tags($input));
       // or any encoding you use instead of utf-8
       $input = htmlspecialchars($input, ENT_QUOTES, 'utf-8');
 
@@ -249,19 +257,14 @@ function get_current_url($strip = true) {
     };
   }
 
-  return 'http'. (($_SERVER['SERVER_PORT'] == '443') ? 's' : '')
-      .'://'. $_SERVER['SERVER_NAME'] . $filter($_SERVER['REQUEST_URI']);
+  return 'http'. (($_SERVER['SERVER_PORT'] == '443') ? 's' : '') .'://'. $_SERVER['SERVER_NAME'] . $filter($_SERVER['REQUEST_URI']);
 }
 
 function get_paging_action() {
   $remove = "/page/";
   $url_string = strtok(get_current_url(),'?');
   $string_pos = strpos($url_string, $remove);
-  if ($string_pos !== false) {
-      $new_action = substr($url_string, 0, $string_pos);
-  } else {
-      $new_action = $url_string;
-  }
+  $new_action = ($string_pos !== false ? substr($url_string, 0, $string_pos) : $url_string);
   $new_action = rtrim($new_action, '/');
   return $new_action;
 }
@@ -284,10 +287,10 @@ function page5_pagination($pages = '') {
     echo '<!-- Pagination -->';
     echo '<div class="col-sm-12">';
       echo '<hr class="hidden-xs">';
-      echo '<form id="pagination" class="pagination" action="'.$_SERVER['REQUEST_URI'].'" method="post" onsubmit="paginationForm(this, \''.$new_action.'\');">';
+      echo '<form id="pagination" class="pagination default" action="'.$_SERVER['REQUEST_URI'].'" method="post" onsubmit="paginationForm(this, \''.$new_action.'\');">';
         previous_posts_link( '<img width="12" height="10" src="'.get_template_directory_uri().'/images/common/arrow-left.png" alt="Previous Posts">' );
         echo '<input id="paged" maxlength="3" type="text" name="page" value="'.$paged.'" /> ';
-        echo '<span>';
+        echo ' <span>';
         if ($pages > 1) { echo 'of ' . $pages; }
         echo ' page'; if ($pages > 1) { echo 's'; }
         echo '</span>';

@@ -1,5 +1,3 @@
-.site-header{
-  .header-slider{
-    position: relative;
-  }
-}
+@import "header/header_ads";
+@import "header/header_pre_header";
+@import "header/header_menu";

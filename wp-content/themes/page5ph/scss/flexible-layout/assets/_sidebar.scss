@@ -1,0 +1,89 @@
+.widget-area{
+  &.default{
+    @media(max-width: 768px){
+      margin-top: 25px;
+    }
+    h4{
+      margin-bottom: 25px;
+      font-family: 'oswald', sans-serif;
+      text-transform: uppercase;
+    }
+    .trending-container{
+      padding-bottom: 50px;
+      .post{
+        display: flex;
+        margin-bottom: 20px;
+        .image-holder{
+          margin-right: 15px;
+          img{
+            max-width: 154px;
+          }
+        }
+        .text-holder{
+          .trending-name-holder{
+            font-family: 'oswald', sans-serif;
+            font-size: 10px;
+            div{
+              display: inline-block;
+              margin-bottom: 5px;
+              padding: 3px 15px;
+              color: #fff;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              &.entertainment{
+                background-color: #4135bf;
+              }
+              &.travel{
+                background-color: #34BF51;
+              }
+              &.beauty{
+                background-color: #F21363;
+              }
+              &.parenting{
+                background-color: #F2C513;
+              }
+              &.tech{
+                background-color: #018FFF;
+              }
+            }
+          }
+          .title-holder-inner{
+            line-height: 18px;
+            margin-bottom: 5px;
+            a{
+              font-family: 'oswald', sans-serif;
+              font-size: 1rem;
+              color: #000;
+              &:hover{
+                color: #000;
+              }
+            }
+          }
+          .post-meta{
+            font-size: 10px;
+            margin: 0px;
+            text-transform: uppercase;
+            float: left;
+            width: 100%;
+            font-style: normal;
+            line-height: 1.2;
+            span{
+              display: inline-flex;
+              margin-right: 5px;
+              text-transform: capitalize;
+              i{
+                margin-right: 3px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .advertisement-container{
+      padding-bottom: 50px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}

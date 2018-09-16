@@ -1,3 +1,6 @@
+// NAVIGATION
+@import "nav";
+
 // PAGE ASSETS
 @import "pages/page-banner";
 
@@ -13,8 +16,20 @@
 // FLEXIBLE LAYOUT
 @import "pages/flex-layout";
 
+// WHATS NEW LAYOUT
+@import "pages/whats-new-layout";
+
 // FRONT PAGE LAYOUT
 @import "pages/front-page";
+
+// CATEGORY LAYOUT
+@import "pages/category";
+
+// PAGINATION ASSET
+@import "assets/pagination";
+
+// SIDEBAR ASSET
+@import "assets/sidebar";
 
 // HIGHLY CUSTOMIZED LAYOUT (IMPORTANT CAN BE USED)
 @import "important-layout";

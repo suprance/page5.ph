@@ -138,27 +138,28 @@ $(document).ready(function(){
       submitIcon.click();
     }
   });
+  if ($.find('.default-slider')[0]) {
+    $(".slides").slick({
+      asNavFor: ".captions",
+      infinite: true,
+      speed: 600,
+      arrows: false,
+      autoplaySpeed: 5000,
+      autoplay: true,
+      dots: true
+    });
 
-  $(".slides").slick({
-    asNavFor: ".captions",
-    infinite: true,
-    speed: 600,
-    arrows: false,
-    autoplaySpeed: 5000,
-    autoplay: true,
-    dots: true
-  });
-
-  $(".captions").slick({
-    asNavFor: ".slides",
-    infinite: true,
-    speed: 200,
-    fade: true,
-    prevArrow:
-      '<div class="post_arrow_left"><i class="fa fa-angle-left"></i> PREV</div>',
-    nextArrow:
-      '<div class="post_arrow_right">NEXT <i class="fa fa-angle-right"></i></div>'
-  });
+    $(".captions").slick({
+      asNavFor: ".slides",
+      infinite: true,
+      speed: 200,
+      fade: true,
+      prevArrow:
+        '<div class="post_arrow_left"><i class="fa fa-angle-left"></i> PREV</div>',
+      nextArrow:
+        '<div class="post_arrow_right">NEXT <i class="fa fa-angle-right"></i></div>'
+    });
+  }
 
 // end
 });

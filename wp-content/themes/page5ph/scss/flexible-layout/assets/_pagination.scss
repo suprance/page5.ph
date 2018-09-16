@@ -1,0 +1,37 @@
+.pagination{
+  font-family: 'oswald', sans-serif;
+  display: inline-block;
+  &.default{
+    a,
+    input,
+    span{
+      display: inline-block;
+    }
+    a{
+      position: relative;
+      top: 4px;
+      &:first-child{
+        margin-right: 3px;
+      }
+      &:last-child{
+        margin-left: 3px;
+      }
+      img{
+        margin-bottom: 12px;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    span{
+      margin: 0 5px;
+    }
+    input{
+      width: 36px;
+      height: 26px;
+      padding: 3px;
+      margin: 0;
+      text-align: center;
+      border: 1px solid #000;
+    }
+  }
+}

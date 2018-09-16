@@ -20,7 +20,6 @@ get_header();
           <div class="row">
             <div class="col">
               <?php
-              var_dump(get_post_type());
                 if ( have_posts() ) :
 
                   if ( is_home() && ! is_front_page() ) :

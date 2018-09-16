@@ -20,7 +20,6 @@ $menuArgs = array(
   $footerLogo = (get_field('f_main_logo', 'option') ? get_field('f_main_logo', 'option')['url'] : imgfolder('no_image.png') );
   $middleLogo = (get_field('h_middle_logo', 'option') ? get_field('h_middle_logo', 'option')['url'] : imgfolder('no_image.png') );
 ?>
-
   </div><!-- #content -->
     <footer id="colophon" class="site-footer">
       <div class="footer-top">
@@ -89,7 +88,9 @@ $menuArgs = array(
                   <div class="ribbon-bottom"></div>
                 </div>
                 <h5>Get Latest News and Updates<br/>Straight to your Inbox!</h5>
-                <div class="newsletter"><h4>Newsletter is bar here!</h4></div>
+                <div class="newsletter">
+                  <?php echo do_shortcode( '[contact-form-7 id="220" title="Contact form 1"]' ); ?>
+                </div>
                 <div class="privacy">
                   <p>View our Privacy Policy</p>
                   <p><a href="/privacy-policy/">Click Here!</a></p>
