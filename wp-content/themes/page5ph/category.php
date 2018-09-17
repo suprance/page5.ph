@@ -10,8 +10,8 @@
     $catPostName =  esc_html( $catPost[0]->name );
   }
   switch ($catPostName) {
-    case 'Beauty & Fashion':
-      $catColor = 'beauty';
+    case 'Parenting':
+      $catColor = 'parenting';
       break;
 
     case 'Entertainment':
@@ -27,12 +27,12 @@
       break;
     
     default:
-      $catColor = 'parenting';
+      $catColor = 'beauty';
       break;
   }
 ?>
   <div id="primary" class="content-area">
-    <main id="main" class="site-main">
+    <main id="main" class="site-main myCategoryLayout">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -40,12 +40,12 @@
           </div>
           <div class="col-12">
             <div class="row">
-              <div class="col-sm-12 col-md-8">
+              <div class="col-sm-12 col-md-6 col-lg-8">
                 <div class="cat-content">
                   <div class="row">
                     <?php if ( have_posts() ) {
 
-                       while ( have_posts() ) {
+                     while ( have_posts() ) {
                         the_post();
                         $author = get_the_author();
                         $postPublished = get_the_time('F y, Y');
@@ -84,7 +84,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-4">
+              <div class="col-sm-12 col-md-6 col-lg-4">
                 <?php include_once('template-parts/custom-sidebar.php'); ?>
               </div>
             </div>

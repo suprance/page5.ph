@@ -1,0 +1,51 @@
+.page-template-happenings-layout{
+    .happenings-name-holder{
+      h3{
+        padding: 40px 0;
+        font-family: 'oswald', sans-serif !important;
+      }
+    }
+    .bxslider-container{
+      margin-bottom: 45px;
+      .bx-wrapper{
+        margin: 0;
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+    .happenings-content{
+      .happenings-container{
+        margin-bottom: 50px;
+        .image-holder{
+          a{
+            img{
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+        .post-meta{
+          font-size: 10px;
+          margin: 0px;
+          text-transform: uppercase;
+          float: left;
+          width: 100%;
+          font-style: normal;
+          line-height: 1.2;
+          padding: 15px 0;
+          span{
+            display: inline-block;
+            margin-right: 15px;
+            text-transform: capitalize;
+          }
+        }
+        h4{
+          font-family: 'oswald', sans-serif !important;
+          margin-bottom: 25px;
+          a{
+            color: #000;
+          }
+        }
+      }
+    }
+}

@@ -8,28 +8,28 @@
  */
 
 ?>
+<div class="col-sm-12 col-md-6">
+  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <header class="entry-header">
+      <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+      <?php if ( 'post' === get_post_type() ) : ?>
+      <div class="entry-meta">
+        <span class="posted-on">Posted on <?php _e(get_the_time('F y, Y')); ?> by <?php the_author(); ?></span>
+      </div><!-- .entry-meta -->
+      <?php endif; ?>
+    </header><!-- .entry-header -->
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			page5ph_posted_on();
-			page5ph_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+    <?php page5ph_post_thumbnail();
+    $text = apply_filters( 'the_content', strip_shortcodes( get_the_content() ) );
+    $text = str_replace(']]>', ']]&gt;', $text);
+    $excerpt_length = apply_filters( 'excerpt_length', 20 );
+    $excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
+    $contentText = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+    ?>
 
-	<?php page5ph_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php page5ph_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+    <div class="entry-summary">
+      <?php _e($contentText); ?>
+    </div><!-- .entry-summary -->
+  </article><!-- #post-<?php the_ID(); ?> -->
+</div>

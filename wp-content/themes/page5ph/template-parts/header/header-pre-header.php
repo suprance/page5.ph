@@ -14,17 +14,19 @@
         <img src="<?php _e($middleLogo); ?>" alt="">
       </div>
     </div>
+
     <div class="col-sm-12 col-md-12 col-lg-3 hide-sm hide-md">
       <div class="header-fb-search">
         <div class="header-fb hidden"><i class="fa fa-facebook-official" aria-hidden="true"></i><?php echo fb_like_button(); ?></div>
         <div class="search">
-          <form class="searchbox">
-            <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+          <form class="searchbox" role="search" action="<?php echo site_url('/'); ?>" method="get" id="searchform search" onSubmit="return validate();">
+            <input type="search" placeholder="Search......" id="s" name="s" class="searchbox-input" onkeyup="buttonUp();" value="<?php echo get_search_query() ?>">
             <input type="submit" class="searchbox-submit">
             <span class="searchbox-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
           </form>
         </div>
       </div>
     </div>
+
   </div>
 </div>

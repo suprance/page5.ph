@@ -1,0 +1,23 @@
+.mySearchLayout{
+  article{
+    margin-bottom: 30px;
+    header{
+      h2{
+        a{
+          font-family: 'oswald', sans-serif !important;
+          color: #000;
+        }
+      }
+      .entry-meta{
+        font-family: 'oswald', sans-serif !important;
+        a{
+          color: #000;
+        }
+      }
+    }
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}

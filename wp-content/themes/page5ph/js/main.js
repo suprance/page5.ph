@@ -138,6 +138,7 @@ $(document).ready(function(){
       submitIcon.click();
     }
   });
+
   if ($.find('.default-slider')[0]) {
     $(".slides").slick({
       asNavFor: ".captions",
@@ -158,6 +159,28 @@ $(document).ready(function(){
         '<div class="post_arrow_left"><i class="fa fa-angle-left"></i> PREV</div>',
       nextArrow:
         '<div class="post_arrow_right">NEXT <i class="fa fa-angle-right"></i></div>'
+    });
+  }
+
+  if ($.find('.bxslider-container')[0]) {
+    $('.bxslider').bxSlider({
+      autoStart: true,
+      auto: true,
+      infiniteLoop: true,
+      responsive: true,
+      pager: false,
+    });
+  }
+
+
+  if ($.find('.owl-container')[0]) {
+    $('.owl-carousel').owlCarousel({
+      nac: true,
+      loop: false,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      margin: 10,
+      items: 3,
     });
   }
 

@@ -235,10 +235,21 @@ function page5ph_scripts() {
 
   // only activate in happenings page
   if (is_page('happenings')) {
-    wp_enqueue_style( 'page5ph-owl-carousel-css', get_template_directory_uri() . '/css/owl.carousel.css', array(), '2018' );
-    wp_enqueue_script( 'page5ph-owl-carousel-js', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), true );
+    wp_enqueue_style( 'page5ph-bxslider-css', get_template_directory_uri() . '/css/bxslider.css', array(), '2018' );
+    wp_enqueue_script( 'page5ph-bxslider-js', get_template_directory_uri() . '/js/bxslider.min.js', array('jquery'), true );
   }
-  
+
+  // only activate in centerfold page
+  $catPost = get_the_category();
+  $catPostSlug ='';
+  if ( ! empty( $catPost ) ) {
+    $catPostSlug =  esc_html( $catPost[0]->slug );
+  }
+  if (is_page('centerfold') || $catPostSlug === 'centerfold') {
+    wp_enqueue_style( 'page5ph-owlcarousel-css', get_template_directory_uri() . '/css/owl.carousel.css', array(), '2018' );
+    wp_enqueue_script( 'page5ph-owlcarousel-js', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), true );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'page5ph_scripts' );
 
