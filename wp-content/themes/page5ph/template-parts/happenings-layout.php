@@ -46,8 +46,8 @@ get_header();
                 <div class="row">
                   <?php
                   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                  query_posts('cat=4,5,6,7,8,9&posts_per_page=9&paged='.$paged); // Happenings category is 9
-                  if ( have_posts() ) {
+                  query_posts('cat=9&posts_per_page=9&paged='.$paged); // Happenings category is 9
+                  if ( have_posts() ) 
 
                      while ( have_posts() ) {
                       the_post();

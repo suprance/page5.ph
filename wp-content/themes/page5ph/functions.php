@@ -336,7 +336,7 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Include Gengo Advanced Custom Fields Settings
  */
-include_once('lib/gengo-acf.php');
+// include_once('lib/gengo-acf.php');
 
 /**
  * Load Jetpack compatibility file.

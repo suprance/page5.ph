@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="https://gmpg.org/xfn/11">
+  <link rel="shortcut icon" href="http://wocker.test/wp-content/themes/page5ph/favicon.ico" />
+  <title>Hello World 4 - Page5ph</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v8.1.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noindex,follow"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Hello World 4 - Page5ph" />
+<meta property="og:description" content="Welcome to WordPress. This is your first post. Edit or delete it, then start writing! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, assumenda facere nihil beatae dicta, aperiam officia maxime autem cupiditate suscipit minus in debitis nemo, reiciendis perspiciatis blanditiis laboriosam libero eligendi." />
+<meta property="og:url" content="http://wocker.test/hello-world-4/" />
+<meta property="og:site_name" content="Page5ph" />
+<meta property="article:section" content="Beauty &amp; Fashion" />
+<meta property="article:published_time" content="2018-09-11T15:34:09+00:00" />
+<meta property="article:modified_time" content="2018-09-16T13:46:46+00:00" />
+<meta property="og:updated_time" content="2018-09-16T13:46:46+00:00" />
+<meta property="og:image" content="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg" />
+<meta property="og:image:width" content="410" />
+<meta property="og:image:height" content="288" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Welcome to WordPress. This is your first post. Edit or delete it, then start writing! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, assumenda facere nihil beatae dicta, aperiam officia maxime autem cupiditate suscipit minus in debitis nemo, reiciendis perspiciatis blanditiis laboriosam libero eligendi." />
+<meta name="twitter:title" content="Hello World 4 - Page5ph" />
+<meta name="twitter:image" content="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Page5ph &raquo; Feed" href="http://wocker.test/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Page5ph &raquo; Comments Feed" href="http://wocker.test/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Page5ph &raquo; Hello World 4 Comments Feed" href="http://wocker.test/hello-world-4/feed/" />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v7.1.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<!-- Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel. -->
+<!-- No UA code set -->
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/wocker.test\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='contact-form-7-css'  href='http://wocker.test/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.0.4' type='text/css' media='all' />
+<link rel='stylesheet' id='page5ph-style-css'  href='http://wocker.test/wp-content/themes/page5ph/css/style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='page5ph-bootstrap-css'  href='http://wocker.test/wp-content/themes/page5ph/js/bootstrap/bootstrap.css?ver=2018' type='text/css' media='all' />
+<link rel='stylesheet' id='page5ph-font-awesome-css'  href='http://wocker.test/wp-content/themes/page5ph/css/font-awesome.min.css?ver=2018' type='text/css' media='all' />
+<script type='text/javascript' src='http://wocker.test/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://wocker.test/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://wocker.test/wp-content/themes/page5ph/js/jquery.min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='http://wocker.test/wp-content/themes/page5ph/js/main.js?ver=4.9.8'></script>
+<script type='text/javascript' src='http://wocker.test/wp-content/themes/page5ph/js/bootstrap/popper.min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='http://wocker.test/wp-content/themes/page5ph/js/bootstrap/bootstrap.min.js?ver=4.9.8'></script>
+<link rel='https://api.w.org/' href='http://wocker.test/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://wocker.test/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://wocker.test/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.8" />
+<link rel='shortlink' href='http://wocker.test/?p=203' />
+<link rel="alternate" type="application/json+oembed" href="http://wocker.test/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwocker.test%2Fhello-world-4%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://wocker.test/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwocker.test%2Fhello-world-4%2F&#038;format=xml" />
+
+<!-- This site is using AdRotate v4.13.2 to display their advertisements - https://ajdg.solutions/products/adrotate-for-wordpress/ -->
+<meta property="fb:app_id" content=""><meta property="fb:admins" content="">        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        <link rel="pingback" href="http://wocker.test/xmlrpc.php"></head>
+<body class="post-template-default single single-post postid-203 single-format-standard">
+<div id="page" class="site">
+  <!-- get advertisement -->
+  <div id="adver-banner" class="adver-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center"><div class="a-single a-1"><a class="gofollow" data-track="MSwwLDEsNjA=" href="facebook.com" target="_blank" rel="nofollow"><img src="http://wocker.test/wp-content/uploads/2018/09/Horizontal-AD-1200-x-180.jpg" /></a></div></div>
+    </div>
+  </div>
+</div>
+  <header id="masthead" class="site-header">
+    <!-- get pre header -->
+    <div class="container-fluid header-pre-header">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-3">
+      <div class="site-branding">
+        <a href="http://wocker.test/" rel="home"><img src="http://wocker.test/wp-content/uploads/2018/09/page5php_logo.png" alt="Page5ph"></a>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="header-center-logo">
+        <img src="http://wocker.test/wp-content/uploads/2018/09/the_source_for_influencer.png" alt="">
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-3 hide-sm hide-md">
+      <div class="header-fb-search">
+        <div class="header-fb hidden"><i class="fa fa-facebook-official" aria-hidden="true"></i><style>.fb_iframe_widget span{width:460px !important;} .fb_iframe_widget iframe {margin: 0 !important;}        .fb_edge_comment_widget { display: none !important; }</style><div style="width:100%; text-align:center"><div class="fb-like" style="width:65px; overflow: hidden !important; " data-href="http://wocker.test/hello-world-4/" data-size="small" data-colorscheme="light" data-width="65" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true" kid_directed_site="false"></div></div></div>
+        <div class="search">
+          <form class="searchbox" role="search" action="http://wocker.test/" method="get" id="searchform search" onSubmit="return validate();">
+            <input type="search" placeholder="Search......" id="s" name="s" class="searchbox-input" onkeyup="buttonUp();" value="">
+            <input type="submit" class="searchbox-submit">
+            <span class="searchbox-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <!-- get header menu -->
+    
+<div class="menu-primary-container">
+  <div class="menu-site-branding">
+    <div class="site-branding">
+      <a href="http://wocker.test/" rel="home"><img src="http://wocker.test/wp-content/uploads/2018/09/page5php_logo_white.png" alt="Page5ph"></a>
+    </div>
+  </div>
+  <div class="hide-sm hide-md">
+    <nav id="site-navigation" class="main-navigation">
+      <ul id="primary-menu" class="unified-navbar menu list-unstyled list-inline open-sub parent-nav-1"><li id="menu-item-153" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-153"><a href="http://wocker.test/">Home</a></li>
+<li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><a href="http://wocker.test/whats-new/">What&#8217;s New</a></li>
+<li id="menu-item-156" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-156"><a href="#">Life / Style</a>
+<ul class="sub-menu">
+	<li id="menu-item-159" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-159"><a href="/category/beauty-fashion/">Beauty &#038; Fashion</a></li>
+	<li id="menu-item-160" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-160"><a href="/category/entertainment/">Entertainment</a></li>
+	<li id="menu-item-161" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-161"><a href="/category/travel/">Travel</a></li>
+	<li id="menu-item-162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="/category/tech/">Tech</a></li>
+	<li id="menu-item-163" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-163"><a href="/category/parenting/">Parenting</a></li>
+</ul>
+</li>
+<li id="menu-item-229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-229"><a href="http://wocker.test/happenings/">Happenings</a></li>
+<li id="menu-item-228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a href="http://wocker.test/centerfold/">Centerfold</a></li>
+</ul>    </nav>
+  </div>
+  <div class="visible-sm visible-md">
+    <nav id="site-navigation" class="main-navigation mobile-button">
+      <aside class="wholepanel">
+        <ul id="primary-menu" class="unified-navbar menu list-unstyled list-inline open-sub parent-nav-1"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-153"><a href="http://wocker.test/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><a href="http://wocker.test/whats-new/">What&#8217;s New</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-156"><a href="#">Life / Style</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-159"><a href="/category/beauty-fashion/">Beauty &#038; Fashion</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-160"><a href="/category/entertainment/">Entertainment</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-161"><a href="/category/travel/">Travel</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="/category/tech/">Tech</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-163"><a href="/category/parenting/">Parenting</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-229"><a href="http://wocker.test/happenings/">Happenings</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a href="http://wocker.test/centerfold/">Centerfold</a></li>
+</ul>      </aside>
+      <div class="mobile-menu-trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </div>
+</div>
+  </header><!-- #masthead -->
+
+  <div id="content" class="site-content">
+<div id="primary" class="content-area">
+  <main id="main" class="site-main myCategoryLayout">
+    <div class="single-category-container default">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-8">
+                          <div class="cat-single-container">
+                <div class="image-holder">
+                  <!-- image dimension should be 730 x 513 or more -->
+                  <img src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg">
+                </div>
+                <div class="post-meta">
+                                      <span class="cat-color beauty">Beauty &amp; Fashion</span>
+                                    <span class="avatar"><i class="fa fa-user"></i> admin</span>
+                  <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
+                </div>
+                <h1>Hello World 4</h1>
+                <div class="content-holder">
+                  <p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, assumenda facere nihil beatae dicta, aperiam officia maxime autem cupiditate suscipit minus in debitis nemo, reiciendis perspiciatis blanditiis laboriosam libero eligendi.</p>
+                </div>
+              </div>
+                        <hr>
+
+            <div class="leave-a-reply-container">
+              <!-- <h3>Leave a reply</h3> -->
+              
+<div id="comments" class="comments-area">
+
+  	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/hello-world-4/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://wocker.test/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='203' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	
+</div><!-- #comments -->
+            </div>
+
+            <div class="related-articles-container">
+              <div class="post-container">
+  <div class="row">
+          <div class="col-12">
+        <h3>Related articles</h3>
+      </div>
+      
+          <div class="col-sm-6 col-md-6 col-lg-4">
+            <div class="post">
+              <div class="image-holder">
+                <a href="http://wocker.test/hello-world-2/">
+                <img width="213" height="150" src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288-300x211.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288-300x211.jpg 300w, http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg 410w" sizes="(max-width: 213px) 100vw, 213px" />              </a>
+              </div>
+              <div class="text-holder">
+                <div class="category-holder"><div class="parenting">Parenting</div></div>
+                <div class="post-meta">
+                  <span class="avatar"><i class="fa fa-user"></i> admin</span>
+                  <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
+                </div>
+                <div class="title-holder-inner"><a href="http://wocker.test/hello-world-2/">Hello World 2</a></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-md-6 col-lg-4">
+            <div class="post">
+              <div class="image-holder">
+                <a href="http://wocker.test/hello-world-3/">
+                <img width="213" height="150" src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288-300x211.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288-300x211.jpg 300w, http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg 410w" sizes="(max-width: 213px) 100vw, 213px" />              </a>
+              </div>
+              <div class="text-holder">
+                <div class="category-holder"><div class="tech">Tech</div></div>
+                <div class="post-meta">
+                  <span class="avatar"><i class="fa fa-user"></i> admin</span>
+                  <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
+                </div>
+                <div class="title-holder-inner"><a href="http://wocker.test/hello-world-3/">Hello World 3</a></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-md-6 col-lg-4">
+            <div class="post">
+              <div class="image-holder">
+                <a href="http://wocker.test/hello-world-4/">
+                <img width="213" height="150" src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288-300x211.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288-300x211.jpg 300w, http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg 410w" sizes="(max-width: 213px) 100vw, 213px" />              </a>
+              </div>
+              <div class="text-holder">
+                <div class="category-holder"><div class="beauty">Beauty &amp; Fashion</div></div>
+                <div class="post-meta">
+                  <span class="avatar"><i class="fa fa-user"></i> admin</span>
+                  <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
+                </div>
+                <div class="title-holder-inner"><a href="http://wocker.test/hello-world-4/">Hello World 4</a></div>
+              </div>
+            </div>
+          </div>
+            </div>
+</div>            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <aside id="secondary" class="widget-area default">
+  <h4>Trending</h4>
+  <div class="trending-container">
+              <div class="post">
+            <div class="image-holder">
+              <a href="http://wocker.test/hello-world-1/">
+                <img src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg">
+              </a>
+            </div>
+            <div class="text-holder">
+              <div class="trending-name-holder"><div class="entertainment">Entertainment</div></div>
+              <div class="title-holder-inner"><a href="http://wocker.test/hello-world-1/">Hello World 1</a></div>
+              <div class="post-meta">
+                <span class="avatar"><i class="fa fa-user"></i> admin</span>
+                <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
+              </div>
+            </div>
+          </div>
+                    <div class="post">
+            <div class="image-holder">
+              <a href="http://wocker.test/hello-world-4/">
+                <img src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg">
+              </a>
+            </div>
+            <div class="text-holder">
+              <div class="trending-name-holder"><div class="beauty">Beauty &amp; Fashion</div></div>
+              <div class="title-holder-inner"><a href="http://wocker.test/hello-world-4/">Hello World 4</a></div>
+              <div class="post-meta">
+                <span class="avatar"><i class="fa fa-user"></i> admin</span>
+                <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
+              </div>
+            </div>
+          </div>
+                    <div class="post">
+            <div class="image-holder">
+              <a href="http://wocker.test/hello-world-2/">
+                <img src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg">
+              </a>
+            </div>
+            <div class="text-holder">
+              <div class="trending-name-holder"><div class="parenting">Parenting</div></div>
+              <div class="title-holder-inner"><a href="http://wocker.test/hello-world-2/">Hello World 2</a></div>
+              <div class="post-meta">
+                <span class="avatar"><i class="fa fa-user"></i> admin</span>
+                <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
+              </div>
+            </div>
+          </div>
+                    <div class="post">
+            <div class="image-holder">
+              <a href="http://wocker.test/hello-world-3/">
+                <img src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg">
+              </a>
+            </div>
+            <div class="text-holder">
+              <div class="trending-name-holder"><div class="tech">Tech</div></div>
+              <div class="title-holder-inner"><a href="http://wocker.test/hello-world-3/">Hello World 3</a></div>
+              <div class="post-meta">
+                <span class="avatar"><i class="fa fa-user"></i> admin</span>
+                <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
+              </div>
+            </div>
+          </div>
+            </div>
+  <h4>Adverstisement</h4>
+  <div class="advertisement-container">
+    <div class="a-single a-2"><a href="/"><img src="/wp-content/uploads/2018/09/Vertical-AD-350-x-460.jpg" /></a></div>  </div>
+</aside><!-- #secondary -->          </div>
+        </div>
+      </div>
+    </div>
+
+  </main><!-- #main -->
+</div><!-- #primary -->  </div><!-- #content -->
+    <footer id="colophon" class="site-footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div class="footer1">
+                <div class="image-holder">
+                  <img src="http://wocker.test/wp-content/uploads/2018/09/page5php_logo_white.png" alt="Page5.ph">
+                </div>
+                <div class="content-holder">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nesciunt ducimus pariatur iste eligendi enim, laboriosam quia eius earum. Expedita, iusto quod? Facilis assumenda ipsam laborum necessitatibus mollitia eaque pariatur.                  </p>
+                </div>
+                <div class="media-holder">
+                  <a href="https://twitter.com/"><div class="twit"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
+                  <a href="https://facebook.com/"><div class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
+                  <a href="https://youtube.com/"><div class="yt"><i class="fa fa-youtube" aria-hidden="true"></i></div></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div class="footer2">
+                <div class="title-holder">
+                  <p><strong>POPULAR POSTS</strong></p>
+                  <div class="ribbon-bottom"></div>
+                </div>
+                <div class="pop-post-holder">
+                                        <div class="post">
+                          <div class="image-holder">
+                            <a href="http://wocker.test/hello-world/">
+                              <img src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg">
+                            </a>
+                          </div>
+                          <div class="text-holder">
+                            <div class="title-holder-inner"><a href="http://wocker.test/hello-world/">Welcome to WordPress. This is your first post. Edit or&hellip;</a></div>
+                            <div class="date-holder">26 May 2018</div>
+                          </div>
+                        </div>
+                                                <div class="post">
+                          <div class="image-holder">
+                            <a href="http://wocker.test/hello-world/">
+                              <img src="http://wocker.test/wp-content/uploads/2018/09/Life-Style-Thumbnail-410-x-288.jpg">
+                            </a>
+                          </div>
+                          <div class="text-holder">
+                            <div class="title-holder-inner"><a href="http://wocker.test/hello-world/">Welcome to WordPress. This is your first post. Edit or&hellip;</a></div>
+                            <div class="date-holder">26 May 2018</div>
+                          </div>
+                        </div>
+                                        </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div class="footer3">
+                <div class="title-holder">
+                  <p><strong>NEWSLETTER</strong></p>
+                  <div class="ribbon-bottom"></div>
+                </div>
+                <h5>Get Latest News and Updates<br/>Straight to your Inbox!</h5>
+                <div class="newsletter">
+                  <div role="form" class="wpcf7" id="wpcf7-f220-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"></div>
+<form action="/hello-world-4/#wpcf7-f220-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="220" />
+<input type="hidden" name="_wpcf7_version" value="5.0.4" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f220-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+</div>
+<p><label><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" id="input-email" aria-required="true" aria-invalid="false" placeholder="Email address" /></span> </label></p>
+<p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" id="mysubmit" /></p>
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div>                </div>
+                <div class="privacy">
+                  <p>View our Privacy Policy</p>
+                  <p><a href="/privacy-policy/">Click Here!</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 hide-sm">
+              <div class="copyright">
+                © COPYRIGHT PAGE5.PH 2018              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="footer-menu-col">
+                <ul id="menu-footer-menu" class="ul-footer-menu list-unstyled list-inline open-sub parent-nav-1-footer"><li id="menu-item-165" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-165"><a href="#">HOME</a></li>
+<li id="menu-item-166" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-166"><a href="#">WHAT&#8217;S NEW</a></li>
+<li id="menu-item-167" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-167"><a href="#">LIFE / STYLE</a></li>
+<li id="menu-item-168" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-168"><a href="#">HAPPENINGS</a></li>
+<li id="menu-item-169" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-169"><a href="#">CENTERFOLD</a></li>
+</ul>              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 visible-sm">
+              <div class="copyright">
+                © COPYRIGHT PAGE5.PH 2018              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div><!-- #page -->
+
+  <script type='text/javascript'>
+/* <![CDATA[ */
+var click_object = {"ajax_url":"http:\/\/wocker.test\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://wocker.test/wp-content/plugins/adrotate/library/jquery.adrotate.clicktracker.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/wocker.test\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://wocker.test/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0.4'></script>
+<script type='text/javascript' src='http://wocker.test/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
+
+  </body>
+</html>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Page Caching using disk: enhanced
+
+ Served from: wocker.test @ 2018-09-17 07:42:31 by W3 Total Cache -->

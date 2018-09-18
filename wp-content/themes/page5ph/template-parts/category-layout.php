@@ -59,7 +59,8 @@
             <hr>
 
             <div class="leave-a-reply-container">
-              <h3>Leave a reply</h3>
+              <!-- <h3>Leave a reply</h3> -->
+              
             </div>
 
             <div class="related-articles-container">

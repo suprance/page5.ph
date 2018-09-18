@@ -1,0 +1,17 @@
+.comments-area{
+  form{
+    .comment-notes{
+      font-family: 'oswald', sans-serif !important;
+    }
+    .comment-form-comment{
+      label{
+        display: none;
+      }
+      #comment{
+        width: 80%;
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}
