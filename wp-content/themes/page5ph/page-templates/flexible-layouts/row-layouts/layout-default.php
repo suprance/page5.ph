@@ -8,17 +8,6 @@
   $rowOuterPadding = $rowLayout['gp_others_options']['paddings']['outer_padding'];
   $rowInnerPadding = $rowLayout['gp_others_options']['paddings']['inner_padding'];
 
-  $layoutStyle = $rowLayout['layout_style'];
-  switch ($layoutStyle) {
-    case 'full':
-      $colClass = "col-xs-12";
-      break;
-    
-    default:
-      $colClass = "col-xs-12 col-sm-10 col-sm-offset-1";
-      break;
-  }
-
   $rowType = $rowLayout['gp_others_options']['type'];
   $rowColor = $rowLayout['gp_others_options']['color'];
   switch ($rowType) {
@@ -33,12 +22,12 @@
       break;
   }
 ?>
-<div id="<?php echo $rowID ?>" class="flex-layout layout-default <?php echo "{$rowOuterPadding} {$layoutStyle}"; ?>">
+<div id="<?php echo $rowID ?>" class="flex-layout layout-default <?php echo "{$rowOuterPadding}"; ?>">
   <?php _e($layoutStart); ?>
     <div class="container">
       <?php if($rowLayout['content']){ ?>
         <div class="row">
-          <div class="<?php _e($colClass); ?>">
+          <div class="col-12">
             <?php _e(apply_filters('the_content', $rowLayout['content'])); ?>
           </div>
         </div>

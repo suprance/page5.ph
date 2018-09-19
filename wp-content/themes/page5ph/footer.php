@@ -81,7 +81,7 @@ $menuArgs = array(
                             </a>
                           </div>
                           <div class="text-holder">
-                            <div class="title-holder-inner"><a href="<?php the_permalink(); ?>"><?php _e($text); ?></a></div>
+                            <div class="title-holder-inner"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
                             <div class="date-holder"><?php the_time('j F Y'); ?></div>
                           </div>
                         </div>

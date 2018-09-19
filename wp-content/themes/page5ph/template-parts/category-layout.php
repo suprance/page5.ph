@@ -41,6 +41,9 @@
                 <div class="image-holder">
                   <!-- image dimension should be 730 x 513 or more -->
                   <img src="<?php _e(get_the_post_thumbnail_url()); ?>">
+                  <?php if (get_field('photo_courtesy') !== '') { ?>
+                    <p><?php _e(get_field('photo_courtesy')) ?></p>
+                  <?php } ?>
                 </div>
                 <div class="post-meta">
                   <?php if ($catPostName != 'Happenings') { ?>
@@ -48,6 +51,11 @@
                   <?php } ?>
                   <span class="avatar"><i class="fa fa-user"></i> <?php _e(get_field('author_name')); ?></span>
                   <span class="post-date"><i class="fa fa-clock-o"></i> <?php _e($postPublished); ?></span>
+                  <div class="right-holder">
+                    <span>Share:</span>
+                    <span class="facebook-share" data-js="facebook-share"><i class="fa fa-facebook-square"></i></span>
+                    <span class="twitter-share" data-js="twitter-share"><i class="fa fa-twitter-square"></i></span>
+                  </div>
                 </div>
                 <h1><?php the_title(); ?></h1>
                 <div class="content-holder">

@@ -1,6 +1,6 @@
 .single{
   .single-category-container{
-    margin: 35px;
+    margin: 35px 0 35px 0;
     &.default{
       .cat-single-container{
         .image-holder{
@@ -8,6 +8,10 @@
           img{
             width: 100%;
             height: 100%;
+          }
+          p{
+            font-size: 10px;
+            color: #bbbbba;
           }
         }
         .post-meta{
@@ -19,6 +23,7 @@
           font-style: normal;
           line-height: 1.2;
           margin-bottom: 30px;
+          position: relative;
           span{
             display: inline-flex;
             margin-right: 15px;
@@ -45,6 +50,28 @@
             }
             &.tech{
               background-color: #018FFF;
+            }
+          }
+          .right-holder{
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 15px;
+            font-family: 'oswald', sans-serif;
+            span{
+              margin-right: 10px;
+              cursor: pointer;
+              &.facebook-share{
+                color: #4267b2;
+                font-size: 20px;
+              }
+              &.twitter-share{
+                color: #1da1f2;
+                font-size: 20px;
+              }
+              &:last-of-type{
+                margin-right: 0;
+              }
             }
           }
         }

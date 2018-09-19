@@ -65,10 +65,12 @@
               <div class="row">
                 <div class="col-sm-12">
                   <span class="category-holder">
-                    <a href="<?php _e($catPostLink); ?>" class="post-category-color-text <?php _e($catColor); ?>"><?php _e($catPostName); ?></a>
+                    <span><a href="<?php _e($catPostLink); ?>" class="post-category-color-text <?php _e($catColor); ?>"><?php _e($catPostName); ?></a></span>
+                    <span class="avatar d-lg-none"><i class="fa fa-user"></i> <?php echo get_field('author_name'); ?></span>
+                    <span class="post-date d-lg-none"><i class="fa fa-clock-o"></i> <?php _e($postPublished); ?></span>
                   </span>
                   <h5><a href="<?php _e($postLink); ?>"><?php _e($postTitle); ?></a></h5>
-                  <span class="post-meta">
+                  <span class="post-meta d-none d-lg-block">
                     <span class="avatar"><i class="fa fa-user"></i> <?php echo get_field('author_name'); ?></span>
                     <span class="post-date"><i class="fa fa-clock-o"></i> <?php _e($postPublished); ?></span>
                   </span>
