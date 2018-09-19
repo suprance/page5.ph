@@ -183,6 +183,12 @@
                 &.tech{
                   background-color: #018FFF;
                 }
+                &.happenings{
+                  background-color: #f26f3f;
+                }
+                &.centerfold{
+                  background-color: #11ae9d;
+                }
               }
             }
             h5{
@@ -249,6 +255,16 @@
                 transition: .25s;
                 background-color: #fff;
                 margin-top: 30px;
+                &:hover{
+                  background-color: #CE4159;
+                  color: #fff;
+                  filter:alpha(opacity=0);
+                  -webkit-transition:200ms ease;
+                  -moz-transition:200ms ease;
+                  -o-transition:200ms ease;
+                  transition:200ms ease;
+                  text-decoration: none;
+                }
               }
             }
           }

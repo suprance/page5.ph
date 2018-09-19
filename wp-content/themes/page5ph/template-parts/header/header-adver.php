@@ -1,5 +1,6 @@
 <div id="adver-banner" class="adver-banner">
-  <div class="container">
+  <div class="d-sm-block d-md-none"><?php echo adrotate_ad(1); ?></div>
+  <div class="container d-none d-md-block">
     <div class="row">
       <div class="col text-center"><?php echo adrotate_ad(1); ?></div>
     </div>

@@ -61,6 +61,8 @@ get_header();
               <hr>
               <div class="leave-a-reply-container">
                 <h3>Leave a reply</h3>
+                <?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
+                <div class="fb-comments" data-href="<?php _e($actual_link); ?>" data-numposts="5"></div>
               </div>
               <div class="previous-articles-container">
                 <?php include_once('single/single-centerfold-articles.php'); ?>

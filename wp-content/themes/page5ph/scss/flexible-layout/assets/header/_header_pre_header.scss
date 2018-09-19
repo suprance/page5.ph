@@ -22,9 +22,12 @@
   .header-fb-search{
     @media (min-width: 992px) {
       text-align: right;
+      position: relative;
     }
     .header-fb{
-      display: none;
+      position: absolute;
+      right: 80px;
+      top: 12px;
     }
     .search{
       .searchbox{

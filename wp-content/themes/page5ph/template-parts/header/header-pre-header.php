@@ -9,7 +9,7 @@
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php _e($mainLogo); ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
       </div>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-6">
+    <div class="col-sm-12 col-md-12 col-lg-6 d-none d-md-block">
       <div class="header-center-logo">
         <img src="<?php _e($middleLogo); ?>" alt="">
       </div>
@@ -17,7 +17,7 @@
 
     <div class="col-sm-12 col-md-12 col-lg-3 hide-sm hide-md">
       <div class="header-fb-search">
-        <div class="header-fb hidden"><i class="fa fa-facebook-official" aria-hidden="true"></i><?php echo fb_like_button(); ?></div>
+        <div class="header-fb"><div class="fb-like" data-href="https://www.facebook.com/page5.ph" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div></div>
         <div class="search">
           <form class="searchbox" role="search" action="<?php echo site_url('/'); ?>" method="get" id="searchform search" onSubmit="return validate();">
             <input type="search" placeholder="Search......" id="s" name="s" class="searchbox-input" onkeyup="buttonUp();" value="<?php echo get_search_query() ?>">

@@ -14,8 +14,8 @@
 
             <div>
               <a href="<?php the_permalink(); ?>">
-                <img src="<?php _e($author_image); ?>" alt="<?php the_author(); ?>">
-                <?php the_author(); ?>
+                <img src="<?php _e($author_image); ?>" alt="<?php _e(get_field('author_name')); ?>">
+                <?php _e(get_field('author_name') ? get_field('author_name') : 'Editor'); ?>
               </a>
             </div>
 

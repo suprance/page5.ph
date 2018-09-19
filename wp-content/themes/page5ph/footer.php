@@ -36,9 +36,22 @@ $menuArgs = array(
                   </p>
                 </div>
                 <div class="media-holder">
-                  <a href="<?php _e(get_field('twitter_link', 'option')); ?>"><div class="twit"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
-                  <a href="<?php _e(get_field('facebook_link', 'option')); ?>"><div class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
-                  <a href="<?php _e(get_field('youtube_link', 'option')); ?>"><div class="yt"><i class="fa fa-youtube" aria-hidden="true"></i></div></a>
+                  <?php if (get_field('twitter_link', 'option')) { ?>
+                    <a href="<?php _e(get_field('twitter_link', 'option')); ?>"><div class="twit"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
+                  <?php } ?>
+                  <?php if (get_field('facebook_link', 'option')) { ?>
+                    <a href="<?php _e(get_field('facebook_link', 'option')); ?>"><div class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
+                  <?php } ?>
+                  <?php if (get_field('youtube_link', 'option')) { ?>
+                    <a href="<?php _e(get_field('youtube_link', 'option')); ?>"><div class="yt"><i class="fa fa-youtube" aria-hidden="true"></i></div></a>
+                  <?php } ?>
+                  <?php if (get_field('instagram_link', 'option')) { ?>
+                    <a href="<?php _e(get_field('instagram_link', 'option')); ?>"><div class="yt"><i class="fa fa-instagram" aria-hidden="true"></i></div></a>
+                  <?php } ?>
+                </div>
+                <div class="about-us-holder">
+                  <p class="custom-style">Contact us via:</p>
+                  <p><a href="mailto:editor@page5.ph"><i class="fa fa-envelope" aria-hidden="true"></i> editor@page5.ph</a></p>
                 </div>
               </div>
             </div>
@@ -76,8 +89,11 @@ $menuArgs = array(
                         wp_reset_postdata();
                       }
                     }
-                  }
-                ?>
+                  } else { ?>
+                    <div class="col">
+                      <p class="text-center">Sorry, no post/s at the moment.</p>
+                    </div>
+                  <?php } ?>
                 </div>
               </div>
             </div>
@@ -92,8 +108,7 @@ $menuArgs = array(
                   <?php echo do_shortcode( '[contact-form-7 id="220" title="Contact form 1"]' ); ?>
                 </div>
                 <div class="privacy">
-                  <p>View our Privacy Policy</p>
-                  <p><a href="/privacy-policy/">Click Here!</a></p>
+                  <p>View our <a href="/privacy-policy/">Privacy Policy</a> | <a href="/cookie-policy/">Cookie Policy</a></p>
                 </div>
               </div>
             </div>
@@ -109,7 +124,7 @@ $menuArgs = array(
                 <?php _e(get_field('copyright', 'option')); ?>
               </div>
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 d-none d-md-block">
               <div class="footer-menu-col">
                 <?php wp_nav_menu( $menuArgs ); ?>
               </div>

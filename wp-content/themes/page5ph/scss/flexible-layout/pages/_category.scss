@@ -51,6 +51,15 @@
         font-family: 'oswald', sans-serif !important;
         a{
           color: #000;
+          &:hover{
+            color: #CE4159;
+            filter:alpha(opacity=0);
+            -webkit-transition:200ms ease;
+            -moz-transition:200ms ease;
+            -o-transition:200ms ease;
+            transition:200ms ease;
+            text-decoration: none;
+          }
         }
       }
       .content-holder{

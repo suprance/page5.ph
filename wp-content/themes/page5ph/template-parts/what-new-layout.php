@@ -36,7 +36,7 @@ get_header();
 
                          while ( $q->have_posts() ) {
                           $q->the_post();
-                          $author = get_the_author();
+                          // $author = get_the_author();
                           $postPublished = get_the_time('F y, Y');
                           $text = apply_filters( 'the_content', strip_shortcodes( get_the_content() ) );
                           $text = str_replace(']]>', ']]&gt;', $text);
@@ -80,7 +80,7 @@ get_header();
                               </div>
                               <div class="category-holder"><div class="<?php _e($catColor); ?>"><?php _e($catPostName); ?></div></div>
                               <div class="post-meta">
-                                <span class="avatar"><i class="fa fa-user"></i> <?php _e($author); ?></span>
+                                <span class="avatar"><i class="fa fa-user"></i> <?php _e(get_field('author_name')); ?></span>
                                 <span class="post-date"><i class="fa fa-clock-o"></i> <?php _e($postPublished); ?></span>
                               </div>
                               <h4><a href="<?php _e($catLink); ?>"><?php the_title(); ?></a></h4>

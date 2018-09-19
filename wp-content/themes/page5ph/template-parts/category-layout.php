@@ -7,7 +7,7 @@
             <?php
              while ( have_posts() ) {
               the_post();
-              $author = get_the_author();
+              // $author = get_the_author();
               $postPublished = get_the_time('F y, Y');
 
               $catPost = get_the_category();
@@ -46,7 +46,7 @@
                   <?php if ($catPostName != 'Happenings') { ?>
                     <span class="cat-color <?php _e($catColor); ?>"><?php _e($catPostName); ?></span>
                   <?php } ?>
-                  <span class="avatar"><i class="fa fa-user"></i> <?php _e($author); ?></span>
+                  <span class="avatar"><i class="fa fa-user"></i> <?php _e(get_field('author_name')); ?></span>
                   <span class="post-date"><i class="fa fa-clock-o"></i> <?php _e($postPublished); ?></span>
                 </div>
                 <h1><?php the_title(); ?></h1>
@@ -59,8 +59,9 @@
             <hr>
 
             <div class="leave-a-reply-container">
-              <!-- <h3>Leave a reply</h3> -->
-              
+              <h3>Leave a reply</h3>
+              <?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
+              <div class="fb-comments" data-href="<?php _e($actual_link); ?>" data-numposts="5"></div>
             </div>
 
             <div class="related-articles-container">

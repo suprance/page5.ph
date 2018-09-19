@@ -16,7 +16,7 @@
         $post_object = get_sub_field('trending_post', 'option');
         if ($post_object) {
           $post = $post_object;
-          $author = get_the_author();
+          // $author = get_the_author();
           $postPublished = get_the_time('F y, Y');
 
           $catPost = get_the_category($post->ID);
@@ -56,7 +56,7 @@
               <div class="trending-name-holder"><div class="<?php _e($catColor); ?>"><?php _e($catPostName); ?></div></div>
               <div class="title-holder-inner"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
               <div class="post-meta">
-                <span class="avatar"><i class="fa fa-user"></i> <?php _e($author); ?></span>
+                <span class="avatar"><i class="fa fa-user"></i> <?php _e(get_field('author_name')); ?></span>
                 <span class="post-date"><i class="fa fa-clock-o"></i> <?php _e($postPublished); ?></span>
               </div>
             </div>

@@ -47,7 +47,7 @@ get_header();
                   <?php
                   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                   query_posts('cat=9&posts_per_page=9&paged='.$paged); // Happenings category is 9
-                  if ( have_posts() ) 
+                  if ( have_posts() ) {
 
                      while ( have_posts() ) {
                       the_post();
@@ -66,7 +66,7 @@ get_header();
                             <a href="<?php _e($catLink); ?>"><img src="<?php _e(get_the_post_thumbnail_url()); ?>"></a>
                           </div>
                           <div class="post-meta">
-                            <span class="avatar"><i class="fa fa-user"></i> <?php _e($author); ?></span>
+                            <span class="avatar"><i class="fa fa-user"></i> <?php _e(get_field('author_name')); ?></span>
                             <span class="post-date"><i class="fa fa-clock-o"></i> <?php _e($postPublished); ?></span>
                           </div>
                           <h4><a href="<?php _e($catLink); ?>"><?php the_title(); ?></a></h4>

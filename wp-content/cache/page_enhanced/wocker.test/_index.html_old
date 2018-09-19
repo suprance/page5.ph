@@ -70,22 +70,21 @@ img.emoji {
 <link rel="alternate" type="text/xml+oembed" href="http://wocker.test/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwocker.test%2F&#038;format=xml" />
 
 <!-- This site is using AdRotate v4.13.2 to display their advertisements - https://ajdg.solutions/products/adrotate-for-wordpress/ -->
-<meta property="fb:app_id" content=""><meta property="fb:admins" content="">        <div id="fb-root"></div>
-        <script>(function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id))
-                    return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
-        <link rel="pingback" href="http://wocker.test/xmlrpc.php"></head>
+<link rel="pingback" href="http://wocker.test/xmlrpc.php"></head>
 <body class="home page-template page-template-template-parts page-template-acf-layout page-template-template-partsacf-layout-php page page-id-2">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=266840360624339&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div id="page" class="site">
   <!-- get advertisement -->
   <div id="adver-banner" class="adver-banner">
-  <div class="container">
+  <div class="d-sm-block d-md-none"><div class="a-single a-1"><a class="gofollow" data-track="MSwwLDEsNjA=" href="facebook.com" target="_blank" rel="nofollow"><img src="http://wocker.test/wp-content/uploads/2018/09/Horizontal-AD-1200-x-180.jpg" /></a></div></div>
+  <div class="container d-none d-md-block">
     <div class="row">
       <div class="col text-center"><div class="a-single a-1"><a class="gofollow" data-track="MSwwLDEsNjA=" href="facebook.com" target="_blank" rel="nofollow"><img src="http://wocker.test/wp-content/uploads/2018/09/Horizontal-AD-1200-x-180.jpg" /></a></div></div>
     </div>
@@ -100,7 +99,7 @@ img.emoji {
         <a href="http://wocker.test/" rel="home"><img src="http://wocker.test/wp-content/uploads/2018/09/page5php_logo.png" alt="Page5ph"></a>
       </div>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-6">
+    <div class="col-sm-12 col-md-12 col-lg-6 d-none d-md-block">
       <div class="header-center-logo">
         <img src="http://wocker.test/wp-content/uploads/2018/09/the_source_for_influencer.png" alt="">
       </div>
@@ -108,7 +107,7 @@ img.emoji {
 
     <div class="col-sm-12 col-md-12 col-lg-3 hide-sm hide-md">
       <div class="header-fb-search">
-        <div class="header-fb hidden"><i class="fa fa-facebook-official" aria-hidden="true"></i><style>.fb_iframe_widget span{width:460px !important;} .fb_iframe_widget iframe {margin: 0 !important;}        .fb_edge_comment_widget { display: none !important; }</style><div style="width:100%; text-align:center"><div class="fb-like" style="width:65px; overflow: hidden !important; " data-href="http://wocker.test/" data-size="small" data-colorscheme="light" data-width="65" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true" kid_directed_site="false"></div></div></div>
+        <div class="header-fb"><div class="fb-like" data-href="https://www.facebook.com/page5.ph" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div></div>
         <div class="search">
           <form class="searchbox" role="search" action="http://wocker.test/" method="get" id="searchform search" onSubmit="return validate();">
             <input type="search" placeholder="Search......" id="s" name="s" class="searchbox-input" onkeyup="buttonUp();" value="">
@@ -125,9 +124,12 @@ img.emoji {
     
 <div class="menu-primary-container">
   <div class="menu-site-branding">
-    <div class="site-branding">
+    <div class="site-branding desktop d-none d-md-block">
       <a href="http://wocker.test/" rel="home"><img src="http://wocker.test/wp-content/uploads/2018/09/page5php_logo_white.png" alt="Page5ph"></a>
     </div>
+  </div>
+  <div class="site-branding mobile d-sm-block d-md-none">
+    <div class="mobile-image"></div>
   </div>
   <div class="hide-sm hide-md">
     <nav id="site-navigation" class="main-navigation">
@@ -180,11 +182,11 @@ img.emoji {
   <div class="main-banner">
     <div class="slider">
   <div class="slides default-slider">
-                        <div class="slide"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/Slider-Image.jpg);"></div></div>
-                    <div class="slide"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/pexels-photo-1036628-1600x750.jpeg);"></div></div>
-                    <div class="slide"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/Slider-Image.jpg);"></div></div>
-                    <div class="slide"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/pexels-photo-1036628-1600x750.jpeg);"></div></div>
-                    <div class="slide"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/Slider-Image.jpg);"></div></div>
+                                <div class="slide"><a href="http://wocker.test/lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-4/"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/Slider-Image.jpg);"></div></a></div>
+                            <div class="slide"><a href="http://wocker.test/neque-porro-quisquam-est-qui-dolorem-ipsum-quia-dolor-sit-amet-consectetur-4/"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/pexels-photo-1036628-1600x750.jpeg);"></div></a></div>
+                            <div class="slide"><a href="http://wocker.test/hello-world-2/"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/Slider-Image.jpg);"></div></a></div>
+                            <div class="slide"><a href="http://wocker.test/hello-world-3/"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/pexels-photo-1036628-1600x750.jpeg);"></div></a></div>
+                            <div class="slide"><a href="http://wocker.test/hello-world-4/"><div class="image-content" style="background-image: url(http://wocker.test/wp-content/uploads/2018/09/Slider-Image.jpg);"></div></a></div>
             </div>
 
   <div class="controls default-preview">
@@ -194,15 +196,15 @@ img.emoji {
               <div class="row">
                 <div class="col-sm-12">
                   <span class="category-holder">
-                    <a href="http://wocker.test/category/beauty-fashion/" class="post-category-color-text beauty">Beauty &amp; Fashion</a>
+                    <a href="http://wocker.test/category/happenings/" class="post-category-color-text happenings">Happenings</a>
                   </span>
-                  <h5><a href="http://wocker.test/?p=1">Hello world!</a></h5>
+                  <h5><a href="http://wocker.test/?p=241">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 4</a></h5>
                   <span class="post-meta">
-                    <span class="avatar"><i class="fa fa-user"></i> admin</span>
-                    <span class="post-date"><i class="fa fa-clock-o"></i> May 18, 2018</span>
+                    <span class="avatar"><i class="fa fa-user"></i> Mang Juan</span>
+                    <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
                   </span>
-                  <p class="post-meta-description">Welcome to WordPress. This is your first post. Edit or delete it, then start writing! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, assumenda facere nihil beatae dicta, aperiam....</p>
-                  <a href="http://wocker.test/?p=1" class="post-meta-read-more" tabindex="-1">Read More</a>
+                  <p class="post-meta-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 4Lorem ipsum dolor sit amet, consectetur adipisicing elit. 4Lorem ipsum dolor sit amet, consectetur adipisicing elit. 4Lorem ipsum dolor sit amet, consectetur....</p>
+                  <a href="http://wocker.test/?p=241" class="post-meta-read-more" tabindex="-1">Read More</a>
                 </div>
               </div>
             </div>
@@ -212,15 +214,15 @@ img.emoji {
               <div class="row">
                 <div class="col-sm-12">
                   <span class="category-holder">
-                    <a href="http://wocker.test/category/entertainment/" class="post-category-color-text entertainment">Entertainment</a>
+                    <a href="http://wocker.test/category/centerfold/" class="post-category-color-text centerfold">Centerfold</a>
                   </span>
-                  <h5><a href="http://wocker.test/?p=197">Hello World 1</a></h5>
+                  <h5><a href="http://wocker.test/?p=253">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur 4</a></h5>
                   <span class="post-meta">
-                    <span class="avatar"><i class="fa fa-user"></i> admin</span>
-                    <span class="post-date"><i class="fa fa-clock-o"></i> May 18, 2018</span>
+                    <span class="avatar"><i class="fa fa-user"></i> Mang Juan</span>
+                    <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
                   </span>
-                  <p class="post-meta-description">Welcome to WordPress. This is your first post. Edit or delete it, then start writing! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, assumenda facere nihil beatae dicta, aperiam....</p>
-                  <a href="http://wocker.test/?p=197" class="post-meta-read-more" tabindex="-1">Read More</a>
+                  <p class="post-meta-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lacinia tellus eu ligula porttitor, et feugiat dolor euismod. Fusce mollis ultricies nunc ac luctus. Phasellus a urna enim. Sed risus....</p>
+                  <a href="http://wocker.test/?p=253" class="post-meta-read-more" tabindex="-1">Read More</a>
                 </div>
               </div>
             </div>
@@ -234,8 +236,8 @@ img.emoji {
                   </span>
                   <h5><a href="http://wocker.test/?p=199">Hello World 2</a></h5>
                   <span class="post-meta">
-                    <span class="avatar"><i class="fa fa-user"></i> admin</span>
-                    <span class="post-date"><i class="fa fa-clock-o"></i> May 18, 2018</span>
+                    <span class="avatar"><i class="fa fa-user"></i> Mang Juan</span>
+                    <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
                   </span>
                   <p class="post-meta-description">Welcome to WordPress. This is your first post. Edit or delete it, then start writing! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, assumenda facere nihil beatae dicta, aperiam....</p>
                   <a href="http://wocker.test/?p=199" class="post-meta-read-more" tabindex="-1">Read More</a>
@@ -252,8 +254,8 @@ img.emoji {
                   </span>
                   <h5><a href="http://wocker.test/?p=201">Hello World 3</a></h5>
                   <span class="post-meta">
-                    <span class="avatar"><i class="fa fa-user"></i> admin</span>
-                    <span class="post-date"><i class="fa fa-clock-o"></i> May 18, 2018</span>
+                    <span class="avatar"><i class="fa fa-user"></i> Mang Juan</span>
+                    <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
                   </span>
                   <p class="post-meta-description">Welcome to WordPress. This is your first post. Edit or delete it, then start writing! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, assumenda facere nihil beatae dicta, aperiam....</p>
                   <a href="http://wocker.test/?p=201" class="post-meta-read-more" tabindex="-1">Read More</a>
@@ -270,8 +272,8 @@ img.emoji {
                   </span>
                   <h5><a href="http://wocker.test/?p=203">Hello World 4</a></h5>
                   <span class="post-meta">
-                    <span class="avatar"><i class="fa fa-user"></i> admin</span>
-                    <span class="post-date"><i class="fa fa-clock-o"></i> May 18, 2018</span>
+                    <span class="avatar"><i class="fa fa-user"></i> Mang Juan</span>
+                    <span class="post-date"><i class="fa fa-clock-o"></i> September 18, 2018</span>
                   </span>
                   <p class="post-meta-description">Welcome to WordPress. This is your first post. Edit or delete it, then start writing! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, assumenda facere nihil beatae dicta, aperiam....</p>
                   <a href="http://wocker.test/?p=203" class="post-meta-read-more" tabindex="-1">Read More</a>
@@ -303,9 +305,13 @@ img.emoji {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nesciunt ducimus pariatur iste eligendi enim, laboriosam quia eius earum. Expedita, iusto quod? Facilis assumenda ipsam laborum necessitatibus mollitia eaque pariatur.                  </p>
                 </div>
                 <div class="media-holder">
-                  <a href="https://twitter.com/"><div class="twit"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
-                  <a href="https://facebook.com/"><div class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
-                  <a href="https://youtube.com/"><div class="yt"><i class="fa fa-youtube" aria-hidden="true"></i></div></a>
+                                      <a href="https://twitter.com/"><div class="twit"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
+                                                        <a href="https://facebook.com/"><div class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
+                                                                          <a href="https://www.instagram.com/page5.ph/"><div class="yt"><i class="fa fa-instagram" aria-hidden="true"></i></div></a>
+                                  </div>
+                <div class="about-us-holder">
+                  <p class="custom-style">Contact us via:</p>
+                  <p><a href="mailto:editor@page5.ph"><i class="fa fa-envelope" aria-hidden="true"></i> editor@page5.ph</a></p>
                 </div>
               </div>
             </div>
@@ -363,8 +369,7 @@ img.emoji {
 <p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" id="mysubmit" /></p>
 <div class="wpcf7-response-output wpcf7-display-none"></div></form></div>                </div>
                 <div class="privacy">
-                  <p>View our Privacy Policy</p>
-                  <p><a href="/privacy-policy/">Click Here!</a></p>
+                  <p>View our <a href="/privacy-policy/">Privacy Policy</a> | <a href="/cookie-policy/">Cookie Policy</a></p>
                 </div>
               </div>
             </div>
@@ -379,7 +384,7 @@ img.emoji {
               <div class="copyright">
                 © COPYRIGHT PAGE5.PH 2018              </div>
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 d-none d-md-block">
               <div class="footer-menu-col">
                 <ul id="menu-footer-menu" class="ul-footer-menu list-unstyled list-inline open-sub parent-nav-1-footer"><li id="menu-item-165" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-165"><a href="#">HOME</a></li>
 <li id="menu-item-166" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-166"><a href="#">WHAT&#8217;S NEW</a></li>
@@ -419,4 +424,4 @@ var wpcf7 = {"apiSettings":{"root":"http:\/\/wocker.test\/wp-json\/contact-form-
 
 Page Caching using disk: enhanced
 
- Served from: wocker.test @ 2018-09-17 13:29:30 by W3 Total Cache -->
+ Served from: wocker.test @ 2018-09-18 18:24:31 by W3 Total Cache -->

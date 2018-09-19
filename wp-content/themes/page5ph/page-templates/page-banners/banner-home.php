@@ -2,8 +2,9 @@
   <div class="slides default-slider">
     <?php if ($pageBanner['slider_parent_rep']) { ?>
       <?php foreach ($pageBanner['slider_parent_rep'] as $pBKey => $pBValue) { ?>
+        <?php $post = get_post($pBValue['slider_posts'], ARRAY_A); ?>
         <?php $sliderLogo = ($pBValue ? $pBValue['image']['url'] : imgfolder('no_image.png') ); ?>
-      <div class="slide"><div class="image-content" style="background-image: url(<?php _e($sliderLogo); ?>);"></div></div>
+      <div class="slide"><a href="<?php _e(get_permalink($post['ID'])); ?>"><div class="image-content" style="background-image: url(<?php _e($sliderLogo); ?>);"></div></a></div>
       <?php } ?>
     <?php } ?>
   </div>
@@ -20,7 +21,7 @@
           $excerpt_length = apply_filters( 'excerpt_length', 30 );
           $excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
           $contentText = wp_trim_words( $text, $excerpt_length, $excerpt_more );
-          $postPublished = get_the_time('F y, Y', $post->ID);
+          $postPublished = get_the_time('F y, Y', $pBValue['slider_posts']);
           $postLink = $post['guid'];
           $postcat = get_the_category( $post['ID'] );
           $catPostLink = get_category_link($postcat[0]->cat_ID);
@@ -45,6 +46,14 @@
             case 'Tech':
               $catColor = 'tech';
               break;
+
+            case 'Happenings':
+              $catColor = 'happenings';
+              break;
+
+            case 'Centerfold':
+              $catColor = 'centerfold';
+              break;
             
             default:
               $catColor = 'beauty';
@@ -60,7 +69,7 @@
                   </span>
                   <h5><a href="<?php _e($postLink); ?>"><?php _e($postTitle); ?></a></h5>
                   <span class="post-meta">
-                    <span class="avatar"><i class="fa fa-user"></i> <?php _e($author); ?></span>
+                    <span class="avatar"><i class="fa fa-user"></i> <?php echo get_field('author_name'); ?></span>
                     <span class="post-date"><i class="fa fa-clock-o"></i> <?php _e($postPublished); ?></span>
                   </span>
                   <p class="post-meta-description"><?php _e($contentText); ?></p>

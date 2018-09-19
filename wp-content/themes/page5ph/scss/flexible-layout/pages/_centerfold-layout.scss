@@ -53,6 +53,15 @@
         margin-bottom: 25px;
         a{
           color: #000;
+          &:hover{
+            color: #CE4159;
+            filter:alpha(opacity=0);
+            -webkit-transition:200ms ease;
+            -moz-transition:200ms ease;
+            -o-transition:200ms ease;
+            transition:200ms ease;
+            text-decoration: none;
+          }
         }
       }
     }
@@ -73,6 +82,15 @@
               height: auto;
               min-height: 136px;
               margin-bottom: 10px;
+            }
+            &:hover{
+              color: #CE4159;
+              filter:alpha(opacity=0);
+              -webkit-transition:200ms ease;
+              -moz-transition:200ms ease;
+              -o-transition:200ms ease;
+              transition:200ms ease;
+              text-decoration: none;
             }
           }
         }

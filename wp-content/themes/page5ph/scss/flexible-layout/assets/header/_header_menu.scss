@@ -1,4 +1,5 @@
-.menu-primary-container{
+.menu-primary-container,
+{
   position: relative;
   height: 50px;
   transition: all .2s ease-in-out;
@@ -14,9 +15,24 @@
     position: absolute;
     z-index: 2;
     img{
-      width: 50%;
+      width: 137px;
+      height: 30px;
       margin-top: 10px;
       margin-left: 15px;
+    }
+  }
+  .site-branding{
+    &.mobile{
+      .mobile-image{
+        background-image: url('../images/common/page5_white_tagline.png');
+        width: 250px;
+        height: 52px;
+        background-position: center center;
+        background-size: contain;
+        position: absolute;
+        z-index: 9;
+        background-repeat: no-repeat;
+      }
     }
   }
   .main-navigation{
@@ -66,33 +82,40 @@
           z-index: 100;
           line-height: 1.8666;
           li{
-              display: block;
-              a{
-                float: left;
-                text-align: left;
+            display: block;
+            a{
+              float: left;
+              text-align: left;
+              width: 100%;
+              &:hover{
+                background-color: #CE4159;
+                filter:alpha(opacity=0);
+                -webkit-transition:500ms ease;
+                -moz-transition:500ms ease;
+                -o-transition:500ms ease;
+                transition:500ms ease;
                 width: 100%;
+                text-align: left;
               }
+            }
           }
         }
         &:hover{
           background-color: #CE4159;
+          filter:alpha(opacity=0);
+          -webkit-transition:500ms ease;
+          -moz-transition:500ms ease;
+          -o-transition:500ms ease;
+          transition:500ms ease;
+          a{
+            text-decoration: none;
+          }
           .sub-menu{
             visibility: visible;
             opacity: 1;
             pointer-events: auto;
             li{
               margin: 0;
-              a{
-                text-decoration: none;
-              }
-              &:hover{
-                a{
-                  background-color: #CE4159;
-                  padding: 0 50px;
-                  width: 100%;
-                  text-align: left;
-                }
-              }
             }
           }
         }
