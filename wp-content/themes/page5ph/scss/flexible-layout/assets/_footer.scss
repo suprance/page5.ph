@@ -125,6 +125,35 @@ footer{
         margin-bottom: 35px;
       }
       .newsletter{
+        .es_form_container{
+          .es_widget_form{
+            position: relative;
+            label{
+              display: none !important;
+            }
+            #es_txt_email{
+              padding: 5px 60px 5px 10px;
+              width: 295px;
+            }
+            .es_button{
+              position: absolute;
+              margin: 0;
+              top: 3px;
+              padding: 5px 0;
+              left: 232px;
+              #es_txt_button{
+                background-color: transparent;
+                border: none;
+                color: #CF4159;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 16px;
+                cursor: pointer;
+                width: auto;
+              }
+            }
+          }
+        }
         margin-bottom: 35px;
         .wpcf7{
           .wpcf7-form{

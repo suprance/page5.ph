@@ -8,8 +8,7 @@
              while ( have_posts() ) {
               the_post();
               // $author = get_the_author();
-              $postPublished = get_the_time('F y, Y');
-
+              $postPublished = get_the_date( get_option( 'F y, Y' ) );
               $catPost = get_the_category();
               $catPostName ='';
               if ( !empty( $catPost ) ) {

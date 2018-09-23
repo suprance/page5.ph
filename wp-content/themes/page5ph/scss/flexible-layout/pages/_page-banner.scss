@@ -14,7 +14,10 @@
       .slick-list{
         .slick-track{
           .slide{
-            height: 400px;
+            height: 220px;
+            @media (min-width: 678px){
+              height: 375px;
+            }
             @media (min-width: 992px){
               height: 600px;
             }
@@ -23,6 +26,9 @@
               background-size: cover;
               background-repeat: no-repeat;
               height: 100%;
+              @media (min-width: 768px){
+                background-position: center top;
+              }
               @media (min-width: 992px){
                 background-position: center center;
               }
@@ -95,7 +101,7 @@
         height: 600px;
       }
       .slick-slider{
-        padding: 20px;
+        padding: 15px;
         @media (min-width: 992px){
           position: static;
           height: inherit;

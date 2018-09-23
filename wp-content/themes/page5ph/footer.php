@@ -37,16 +37,16 @@ $menuArgs = array(
                 </div>
                 <div class="media-holder">
                   <?php if (get_field('twitter_link', 'option')) { ?>
-                    <a href="<?php _e(get_field('twitter_link', 'option')); ?>"><div class="twit"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
+                    <a href="<?php _e(get_field('twitter_link', 'option')); ?>" target="_blank"><div class="twit"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
                   <?php } ?>
                   <?php if (get_field('facebook_link', 'option')) { ?>
-                    <a href="<?php _e(get_field('facebook_link', 'option')); ?>"><div class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
+                    <a href="<?php _e(get_field('facebook_link', 'option')); ?>" target="_blank"><div class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
                   <?php } ?>
                   <?php if (get_field('youtube_link', 'option')) { ?>
-                    <a href="<?php _e(get_field('youtube_link', 'option')); ?>"><div class="yt"><i class="fa fa-youtube" aria-hidden="true"></i></div></a>
+                    <a href="<?php _e(get_field('youtube_link', 'option')); ?>" target="_blank"><div class="yt"><i class="fa fa-youtube" aria-hidden="true"></i></div></a>
                   <?php } ?>
                   <?php if (get_field('instagram_link', 'option')) { ?>
-                    <a href="<?php _e(get_field('instagram_link', 'option')); ?>"><div class="yt"><i class="fa fa-instagram" aria-hidden="true"></i></div></a>
+                    <a href="<?php _e(get_field('instagram_link', 'option')); ?>" target="_blank"><div class="yt"><i class="fa fa-instagram" aria-hidden="true"></i></div></a>
                   <?php } ?>
                 </div>
                 <div class="about-us-holder">
@@ -82,7 +82,7 @@ $menuArgs = array(
                           </div>
                           <div class="text-holder">
                             <div class="title-holder-inner"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
-                            <div class="date-holder"><?php the_time('j F Y'); ?></div>
+                            <div class="date-holder"><?php _e(get_the_date( get_option( 'F y, Y' ) ) ); ?></div>
                           </div>
                         </div>
                         <?php
@@ -105,7 +105,7 @@ $menuArgs = array(
                 </div>
                 <h5>Get Latest News and Updates<br/>Straight to your Inbox!</h5>
                 <div class="newsletter">
-                  <?php echo do_shortcode( '[contact-form-7 id="220" title="Contact form 1"]' ); ?>
+                  <?php dynamic_sidebar( 'footer_newsletter_footer' ); ?>
                 </div>
                 <div class="privacy">
                   <p>View our <a href="/privacy-policy/">Privacy Policy</a> | <a href="/cookie-policy/">Cookie Policy</a></p>
@@ -141,6 +141,10 @@ $menuArgs = array(
   </div><!-- #page -->
 
   <?php wp_footer(); ?>
-
+<!--
+#Created by "Mind Brawl Co."
+#Developer: Carlo B.
+#Designed: JMOH
+-->
   </body>
 </html>

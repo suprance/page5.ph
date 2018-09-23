@@ -1555,3 +1555,236 @@ Stack trace:
 [18-Sep-2018 18:21:49 UTC] PHP   4. include() /var/www/wordpress/wp-includes/template-loader.php:74
 [18-Sep-2018 18:21:49 UTC] PHP   5. include() /var/www/wordpress/wp-content/themes/page5ph/template-parts/acf-layout.php:8
 [18-Sep-2018 18:21:49 UTC] PHP   6. include_once() /var/www/wordpress/wp-content/themes/page5ph/page-templates/page-banners/_main-banner.php:8
+[19-Sep-2018 14:56:29 UTC] PHP Warning:  An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in /var/www/wordpress/wp-includes/update.php on line 529
+[19-Sep-2018 14:56:29 UTC] PHP Stack trace:
+[19-Sep-2018 14:56:29 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin-ajax.php:0
+[19-Sep-2018 14:56:29 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin-ajax.php:100
+[19-Sep-2018 14:56:29 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 14:56:29 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 14:56:29 UTC] PHP   5. wp_ajax_install_plugin() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[19-Sep-2018 14:56:29 UTC] PHP   6. Plugin_Upgrader->install() /var/www/wordpress/wp-admin/includes/ajax-actions.php:3695
+[19-Sep-2018 14:56:29 UTC] PHP   7. WP_Upgrader->run() /var/www/wordpress/wp-admin/includes/class-plugin-upgrader.php:107
+[19-Sep-2018 14:56:29 UTC] PHP   8. do_action() /var/www/wordpress/wp-admin/includes/class-wp-upgrader.php:793
+[19-Sep-2018 14:56:29 UTC] PHP   9. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 14:56:29 UTC] PHP  10. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 14:56:29 UTC] PHP  11. wp_update_themes() /var/www/wordpress/wp-includes/class-wp-hook.php:284
+[19-Sep-2018 14:56:29 UTC] PHP  12. trigger_error() /var/www/wordpress/wp-includes/update.php:529
+[19-Sep-2018 15:26:02 UTC] PHP Warning:  file_get_contents(/var/www/wordpress/wp-content/plugins/ad-inserter/includes/js/ai-load.min.js): failed to open stream: No such file or directory in /var/www/wordpress/wp-content/plugins/ad-inserter/ad-inserter.php on line 1386
+[19-Sep-2018 15:26:02 UTC] PHP Stack trace:
+[19-Sep-2018 15:26:02 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin-ajax.php:0
+[19-Sep-2018 15:26:02 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin-ajax.php:100
+[19-Sep-2018 15:26:02 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:26:02 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:26:02 UTC] PHP   5. ai_ajax_backend() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[19-Sep-2018 15:26:02 UTC] PHP   6. generate_code_preview() /var/www/wordpress/wp-content/plugins/ad-inserter/ad-inserter.php:3714
+[19-Sep-2018 15:26:02 UTC] PHP   7. ai_get_js() /var/www/wordpress/wp-content/plugins/ad-inserter/includes/preview.php:2136
+[19-Sep-2018 15:26:02 UTC] PHP   8. file_get_contents() /var/www/wordpress/wp-content/plugins/ad-inserter/ad-inserter.php:1386
+[19-Sep-2018 15:48:15 UTC] PHP Notice:  Trying to get property of non-object in /var/www/wordpress/wp-content/plugins/wordpress-seo/inc/class-wpseo-meta.php on line 368
+[19-Sep-2018 15:48:15 UTC] PHP Stack trace:
+[19-Sep-2018 15:48:15 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin-ajax.php:0
+[19-Sep-2018 15:48:15 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin-ajax.php:100
+[19-Sep-2018 15:48:15 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP   5. wp_ajax_inline_save() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[19-Sep-2018 15:48:15 UTC] PHP   6. edit_post() /var/www/wordpress/wp-admin/includes/ajax-actions.php:1745
+[19-Sep-2018 15:48:15 UTC] PHP   7. wp_update_post() /var/www/wordpress/wp-admin/includes/post.php:377
+[19-Sep-2018 15:48:15 UTC] PHP   8. wp_insert_post() /var/www/wordpress/wp-includes/post.php:3746
+[19-Sep-2018 15:48:15 UTC] PHP   9. do_action() /var/www/wordpress/wp-includes/post.php:3684
+[19-Sep-2018 15:48:15 UTC] PHP  10. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP  11. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP  12. WPSEO_Metabox->save_postdata() /var/www/wordpress/wp-includes/class-wp-hook.php:288
+[19-Sep-2018 15:48:15 UTC] PHP  13. WPSEO_Meta::get_meta_field_defs() /var/www/wordpress/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:695
+[19-Sep-2018 15:48:15 UTC] PHP Notice:  Trying to get property of non-object in /var/www/wordpress/wp-content/plugins/wordpress-seo/inc/class-wpseo-meta.php on line 368
+[19-Sep-2018 15:48:15 UTC] PHP Stack trace:
+[19-Sep-2018 15:48:15 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin-ajax.php:0
+[19-Sep-2018 15:48:15 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin-ajax.php:100
+[19-Sep-2018 15:48:15 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP   5. wp_ajax_inline_save() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[19-Sep-2018 15:48:15 UTC] PHP   6. edit_post() /var/www/wordpress/wp-admin/includes/ajax-actions.php:1745
+[19-Sep-2018 15:48:15 UTC] PHP   7. wp_update_post() /var/www/wordpress/wp-admin/includes/post.php:377
+[19-Sep-2018 15:48:15 UTC] PHP   8. wp_insert_post() /var/www/wordpress/wp-includes/post.php:3746
+[19-Sep-2018 15:48:15 UTC] PHP   9. do_action() /var/www/wordpress/wp-includes/post.php:3684
+[19-Sep-2018 15:48:15 UTC] PHP  10. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP  11. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP  12. WPSEO_Metabox->save_postdata() /var/www/wordpress/wp-includes/class-wp-hook.php:288
+[19-Sep-2018 15:48:15 UTC] PHP  13. WPSEO_Meta::get_meta_field_defs() /var/www/wordpress/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:695
+[19-Sep-2018 15:48:15 UTC] PHP Notice:  Trying to get property of non-object in /var/www/wordpress/wp-content/plugins/wordpress-seo/inc/class-wpseo-meta.php on line 369
+[19-Sep-2018 15:48:15 UTC] PHP Stack trace:
+[19-Sep-2018 15:48:15 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin-ajax.php:0
+[19-Sep-2018 15:48:15 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin-ajax.php:100
+[19-Sep-2018 15:48:15 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP   5. wp_ajax_inline_save() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[19-Sep-2018 15:48:15 UTC] PHP   6. edit_post() /var/www/wordpress/wp-admin/includes/ajax-actions.php:1745
+[19-Sep-2018 15:48:15 UTC] PHP   7. wp_update_post() /var/www/wordpress/wp-admin/includes/post.php:377
+[19-Sep-2018 15:48:15 UTC] PHP   8. wp_insert_post() /var/www/wordpress/wp-includes/post.php:3746
+[19-Sep-2018 15:48:15 UTC] PHP   9. do_action() /var/www/wordpress/wp-includes/post.php:3684
+[19-Sep-2018 15:48:15 UTC] PHP  10. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP  11. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP  12. WPSEO_Metabox->save_postdata() /var/www/wordpress/wp-includes/class-wp-hook.php:288
+[19-Sep-2018 15:48:15 UTC] PHP  13. WPSEO_Meta::get_meta_field_defs() /var/www/wordpress/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:695
+[19-Sep-2018 15:48:15 UTC] PHP Notice:  Trying to get property of non-object in /var/www/wordpress/wp-content/plugins/wordpress-seo/inc/class-wpseo-meta.php on line 370
+[19-Sep-2018 15:48:15 UTC] PHP Stack trace:
+[19-Sep-2018 15:48:15 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin-ajax.php:0
+[19-Sep-2018 15:48:15 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin-ajax.php:100
+[19-Sep-2018 15:48:15 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP   5. wp_ajax_inline_save() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[19-Sep-2018 15:48:15 UTC] PHP   6. edit_post() /var/www/wordpress/wp-admin/includes/ajax-actions.php:1745
+[19-Sep-2018 15:48:15 UTC] PHP   7. wp_update_post() /var/www/wordpress/wp-admin/includes/post.php:377
+[19-Sep-2018 15:48:15 UTC] PHP   8. wp_insert_post() /var/www/wordpress/wp-includes/post.php:3746
+[19-Sep-2018 15:48:15 UTC] PHP   9. do_action() /var/www/wordpress/wp-includes/post.php:3684
+[19-Sep-2018 15:48:15 UTC] PHP  10. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP  11. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP  12. WPSEO_Metabox->save_postdata() /var/www/wordpress/wp-includes/class-wp-hook.php:288
+[19-Sep-2018 15:48:15 UTC] PHP  13. WPSEO_Meta::get_meta_field_defs() /var/www/wordpress/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:695
+[19-Sep-2018 15:48:15 UTC] PHP Notice:  Trying to get property of non-object in /var/www/wordpress/wp-content/plugins/wordpress-seo/inc/class-wpseo-meta.php on line 370
+[19-Sep-2018 15:48:15 UTC] PHP Stack trace:
+[19-Sep-2018 15:48:15 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin-ajax.php:0
+[19-Sep-2018 15:48:15 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin-ajax.php:100
+[19-Sep-2018 15:48:15 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP   5. wp_ajax_inline_save() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[19-Sep-2018 15:48:15 UTC] PHP   6. edit_post() /var/www/wordpress/wp-admin/includes/ajax-actions.php:1745
+[19-Sep-2018 15:48:15 UTC] PHP   7. wp_update_post() /var/www/wordpress/wp-admin/includes/post.php:377
+[19-Sep-2018 15:48:15 UTC] PHP   8. wp_insert_post() /var/www/wordpress/wp-includes/post.php:3746
+[19-Sep-2018 15:48:15 UTC] PHP   9. do_action() /var/www/wordpress/wp-includes/post.php:3684
+[19-Sep-2018 15:48:15 UTC] PHP  10. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[19-Sep-2018 15:48:15 UTC] PHP  11. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[19-Sep-2018 15:48:15 UTC] PHP  12. WPSEO_Metabox->save_postdata() /var/www/wordpress/wp-includes/class-wp-hook.php:288
+[19-Sep-2018 15:48:15 UTC] PHP  13. WPSEO_Meta::get_meta_field_defs() /var/www/wordpress/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:695
+[19-Sep-2018 15:48:39 UTC] PHP Notice:  Undefined offset: 1 in /var/www/wordpress/wp-includes/class-wp-query.php on line 3071
+[19-Sep-2018 15:48:39 UTC] PHP Stack trace:
+[19-Sep-2018 15:48:39 UTC] PHP   1. {main}() /var/www/wordpress/index.php:0
+[19-Sep-2018 15:48:39 UTC] PHP   2. require() /var/www/wordpress/index.php:17
+[19-Sep-2018 15:48:39 UTC] PHP   3. require_once() /var/www/wordpress/wp-blog-header.php:19
+[19-Sep-2018 15:48:39 UTC] PHP   4. include() /var/www/wordpress/wp-includes/template-loader.php:74
+[19-Sep-2018 15:48:39 UTC] PHP   5. include_once() /var/www/wordpress/wp-content/themes/page5ph/single.php:19
+[19-Sep-2018 15:48:39 UTC] PHP   6. the_post() /var/www/wordpress/wp-content/themes/page5ph/template-parts/category-layout.php:10
+[19-Sep-2018 15:48:39 UTC] PHP   7. WP_Query->the_post() /var/www/wordpress/wp-includes/query.php:805
+[19-Sep-2018 15:48:39 UTC] PHP   8. WP_Query->next_post() /var/www/wordpress/wp-includes/class-wp-query.php:3099
+[19-Sep-2018 15:48:39 UTC] PHP Notice:  Trying to get property of non-object in /var/www/wordpress/wp-includes/post-template.php on line 298
+[19-Sep-2018 15:48:39 UTC] PHP Stack trace:
+[19-Sep-2018 15:48:39 UTC] PHP   1. {main}() /var/www/wordpress/index.php:0
+[19-Sep-2018 15:48:39 UTC] PHP   2. require() /var/www/wordpress/index.php:17
+[19-Sep-2018 15:48:39 UTC] PHP   3. require_once() /var/www/wordpress/wp-blog-header.php:19
+[19-Sep-2018 15:48:39 UTC] PHP   4. include() /var/www/wordpress/wp-includes/template-loader.php:74
+[19-Sep-2018 15:48:39 UTC] PHP   5. include_once() /var/www/wordpress/wp-content/themes/page5ph/single.php:19
+[19-Sep-2018 15:48:39 UTC] PHP   6. the_content() /var/www/wordpress/wp-content/themes/page5ph/template-parts/category-layout.php:63
+[19-Sep-2018 15:48:39 UTC] PHP   7. get_the_content() /var/www/wordpress/wp-includes/post-template.php:231
+[19-Sep-2018 15:58:25 UTC] PHP Notice:  A non well formed numeric value encountered in /var/www/wordpress/wp-content/themes/page5ph/template-parts/category-layout.php on line 15
+[19-Sep-2018 15:58:25 UTC] PHP Stack trace:
+[19-Sep-2018 15:58:25 UTC] PHP   1. {main}() /var/www/wordpress/index.php:0
+[19-Sep-2018 15:58:25 UTC] PHP   2. require() /var/www/wordpress/index.php:17
+[19-Sep-2018 15:58:25 UTC] PHP   3. require_once() /var/www/wordpress/wp-blog-header.php:19
+[19-Sep-2018 15:58:25 UTC] PHP   4. include() /var/www/wordpress/wp-includes/template-loader.php:74
+[19-Sep-2018 15:58:25 UTC] PHP   5. include_once() /var/www/wordpress/wp-content/themes/page5ph/single.php:19
+[19-Sep-2018 15:58:25 UTC] PHP   6. date() /var/www/wordpress/wp-content/themes/page5ph/template-parts/category-layout.php:15
+[19-Sep-2018 16:03:51 UTC] PHP Notice:  Undefined variable: postPublished in /var/www/wordpress/wp-content/themes/page5ph/template-parts/category-layout.php on line 57
+[19-Sep-2018 16:03:51 UTC] PHP Stack trace:
+[19-Sep-2018 16:03:51 UTC] PHP   1. {main}() /var/www/wordpress/index.php:0
+[19-Sep-2018 16:03:51 UTC] PHP   2. require() /var/www/wordpress/index.php:17
+[19-Sep-2018 16:03:51 UTC] PHP   3. require_once() /var/www/wordpress/wp-blog-header.php:19
+[19-Sep-2018 16:03:51 UTC] PHP   4. include() /var/www/wordpress/wp-includes/template-loader.php:74
+[19-Sep-2018 16:03:51 UTC] PHP   5. include_once() /var/www/wordpress/wp-content/themes/page5ph/single.php:19
+[20-Sep-2018 14:16:08 UTC] PHP Notice:  Trying to get property of non-object in /var/www/wordpress/wp-includes/post-template.php on line 298
+[20-Sep-2018 14:16:08 UTC] PHP Stack trace:
+[20-Sep-2018 14:16:08 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/plugins.php:0
+[20-Sep-2018 14:16:08 UTC] PHP   2. activate_plugin() /var/www/wordpress/wp-admin/plugins.php:43
+[20-Sep-2018 14:16:08 UTC] PHP   3. do_action() /var/www/wordpress/wp-admin/includes/plugin.php:586
+[20-Sep-2018 14:16:08 UTC] PHP   4. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[20-Sep-2018 14:16:08 UTC] PHP   5. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[20-Sep-2018 14:16:08 UTC] PHP   6. es_cls_registerhook::es_activation() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[20-Sep-2018 14:16:08 UTC] PHP   7. es_cls_default::es_template_default() /var/www/wordpress/wp-content/plugins/email-subscribers/classes/es-register.php:94
+[20-Sep-2018 14:16:08 UTC] PHP   8. es_cls_sendmail::es_prepare_notification() /var/www/wordpress/wp-content/plugins/email-subscribers/query/db_default.php:160
+[20-Sep-2018 14:16:08 UTC] PHP   9. es_cls_sendmail::es_sendmail() /var/www/wordpress/wp-content/plugins/email-subscribers/classes/es-sendmail.php:66
+[20-Sep-2018 14:16:08 UTC] PHP  10. get_the_excerpt() /var/www/wordpress/wp-content/plugins/email-subscribers/classes/es-sendmail.php:310
+[20-Sep-2018 14:16:08 UTC] PHP  11. apply_filters() /var/www/wordpress/wp-includes/post-template.php:397
+[20-Sep-2018 14:16:08 UTC] PHP  12. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/plugin.php:203
+[20-Sep-2018 14:16:08 UTC] PHP  13. wp_trim_excerpt() /var/www/wordpress/wp-includes/class-wp-hook.php:288
+[20-Sep-2018 14:16:08 UTC] PHP  14. get_the_content() /var/www/wordpress/wp-includes/formatting.php:3308
+[20-Sep-2018 14:43:36 UTC] PHP Notice:  Undefined variable: wp_cron_calls_avg in /var/www/wordpress/wp-content/plugins/newsletter/main/status.php on line 581
+[20-Sep-2018 14:43:36 UTC] PHP Stack trace:
+[20-Sep-2018 14:43:36 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin.php:0
+[20-Sep-2018 14:43:36 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin.php:224
+[20-Sep-2018 14:43:36 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[20-Sep-2018 14:43:36 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[20-Sep-2018 14:43:36 UTC] PHP   5. NewsletterModule->menu_page() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[20-Sep-2018 14:43:36 UTC] PHP   6. require() /var/www/wordpress/wp-content/plugins/newsletter/includes/module.php:658
+[20-Sep-2018 14:43:36 UTC] PHP Notice:  Undefined variable: wp_cron_calls_avg in /var/www/wordpress/wp-content/plugins/newsletter/main/status.php on line 588
+[20-Sep-2018 14:43:36 UTC] PHP Stack trace:
+[20-Sep-2018 14:43:36 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin.php:0
+[20-Sep-2018 14:43:36 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin.php:224
+[20-Sep-2018 14:43:36 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[20-Sep-2018 14:43:36 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[20-Sep-2018 14:43:36 UTC] PHP   5. NewsletterModule->menu_page() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[20-Sep-2018 14:43:36 UTC] PHP   6. require() /var/www/wordpress/wp-content/plugins/newsletter/includes/module.php:658
+[20-Sep-2018 14:43:36 UTC] PHP Notice:  Undefined variable: wp_cron_calls_avg in /var/www/wordpress/wp-content/plugins/newsletter/main/status.php on line 595
+[20-Sep-2018 14:43:36 UTC] PHP Stack trace:
+[20-Sep-2018 14:43:36 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin.php:0
+[20-Sep-2018 14:43:36 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin.php:224
+[20-Sep-2018 14:43:36 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[20-Sep-2018 14:43:36 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[20-Sep-2018 14:43:36 UTC] PHP   5. NewsletterModule->menu_page() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[20-Sep-2018 14:43:36 UTC] PHP   6. require() /var/www/wordpress/wp-content/plugins/newsletter/includes/module.php:658
+[20-Sep-2018 14:43:36 UTC] PHP Notice:  Undefined variable: wp_cron_calls_max in /var/www/wordpress/wp-content/plugins/newsletter/main/status.php on line 595
+[20-Sep-2018 14:43:36 UTC] PHP Stack trace:
+[20-Sep-2018 14:43:36 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin.php:0
+[20-Sep-2018 14:43:36 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin.php:224
+[20-Sep-2018 14:43:36 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[20-Sep-2018 14:43:36 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[20-Sep-2018 14:43:36 UTC] PHP   5. NewsletterModule->menu_page() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[20-Sep-2018 14:43:36 UTC] PHP   6. require() /var/www/wordpress/wp-content/plugins/newsletter/includes/module.php:658
+[20-Sep-2018 14:43:36 UTC] PHP Notice:  Undefined variable: wp_cron_calls_min in /var/www/wordpress/wp-content/plugins/newsletter/main/status.php on line 595
+[20-Sep-2018 14:43:36 UTC] PHP Stack trace:
+[20-Sep-2018 14:43:36 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin.php:0
+[20-Sep-2018 14:43:36 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin.php:224
+[20-Sep-2018 14:43:36 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[20-Sep-2018 14:43:36 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[20-Sep-2018 14:43:36 UTC] PHP   5. NewsletterModule->menu_page() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[20-Sep-2018 14:43:36 UTC] PHP   6. require() /var/www/wordpress/wp-content/plugins/newsletter/includes/module.php:658
+[20-Sep-2018 14:43:40 UTC] PHP Warning:  gethostbyaddr(): Address is not a valid IPv4 or IPv6 address in /var/www/wordpress/wp-content/plugins/newsletter/main/status.php on line 825
+[20-Sep-2018 14:43:40 UTC] PHP Stack trace:
+[20-Sep-2018 14:43:40 UTC] PHP   1. {main}() /var/www/wordpress/wp-admin/admin.php:0
+[20-Sep-2018 14:43:40 UTC] PHP   2. do_action() /var/www/wordpress/wp-admin/admin.php:224
+[20-Sep-2018 14:43:40 UTC] PHP   3. WP_Hook->do_action() /var/www/wordpress/wp-includes/plugin.php:453
+[20-Sep-2018 14:43:40 UTC] PHP   4. WP_Hook->apply_filters() /var/www/wordpress/wp-includes/class-wp-hook.php:310
+[20-Sep-2018 14:43:40 UTC] PHP   5. NewsletterModule->menu_page() /var/www/wordpress/wp-includes/class-wp-hook.php:286
+[20-Sep-2018 14:43:40 UTC] PHP   6. require() /var/www/wordpress/wp-content/plugins/newsletter/includes/module.php:658
+[20-Sep-2018 14:43:40 UTC] PHP   7. gethostbyaddr() /var/www/wordpress/wp-content/plugins/newsletter/main/status.php:825
+[20-Sep-2018 15:24:48 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 109
+[20-Sep-2018 15:24:53 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 109
+[20-Sep-2018 15:24:53 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 109
+[20-Sep-2018 15:24:53 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 109
+[20-Sep-2018 15:24:53 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 109
+[20-Sep-2018 15:25:24 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 110
+[20-Sep-2018 15:25:27 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 110
+[20-Sep-2018 15:25:27 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 110
+[20-Sep-2018 15:25:27 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 110
+[20-Sep-2018 15:25:27 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/wordpress/wp-content/themes/page5ph/footer.php on line 110
+[23-Sep-2018 00:32:29 UTC] PHP Notice:  Constant ADVANCED_ADS_AD_DEBUG_FOR_ADMIN_ONLY already defined in /var/www/wordpress/wp-content/themes/page5ph/functions.php on line 102
+[23-Sep-2018 00:32:29 UTC] PHP Stack trace:
+[23-Sep-2018 00:32:29 UTC] PHP   1. {main}() /var/www/wordpress/index.php:0
+[23-Sep-2018 00:32:29 UTC] PHP   2. require() /var/www/wordpress/index.php:17
+[23-Sep-2018 00:32:29 UTC] PHP   3. require_once() /var/www/wordpress/wp-blog-header.php:13
+[23-Sep-2018 00:32:29 UTC] PHP   4. require_once() /var/www/wordpress/wp-load.php:37
+[23-Sep-2018 00:32:29 UTC] PHP   5. require_once() /var/www/wordpress/wp-config.php:85
+[23-Sep-2018 00:32:29 UTC] PHP   6. include() /var/www/wordpress/wp-settings.php:426
+[23-Sep-2018 00:32:29 UTC] PHP   7. define() /var/www/wordpress/wp-content/themes/page5ph/functions.php:102
+[23-Sep-2018 00:32:30 UTC] PHP Notice:  Constant ADVANCED_ADS_AD_DEBUG_FOR_ADMIN_ONLY already defined in /var/www/wordpress/wp-content/themes/page5ph/functions.php on line 102
+[23-Sep-2018 00:32:30 UTC] PHP Stack trace:
+[23-Sep-2018 00:32:30 UTC] PHP   1. {main}() /var/www/wordpress/index.php:0
+[23-Sep-2018 00:32:30 UTC] PHP   2. require() /var/www/wordpress/index.php:17
+[23-Sep-2018 00:32:30 UTC] PHP   3. require_once() /var/www/wordpress/wp-blog-header.php:13
+[23-Sep-2018 00:32:30 UTC] PHP   4. require_once() /var/www/wordpress/wp-load.php:37
+[23-Sep-2018 00:32:30 UTC] PHP   5. require_once() /var/www/wordpress/wp-config.php:85
+[23-Sep-2018 00:32:30 UTC] PHP   6. include() /var/www/wordpress/wp-settings.php:426
+[23-Sep-2018 00:32:30 UTC] PHP   7. define() /var/www/wordpress/wp-content/themes/page5ph/functions.php:102
+[23-Sep-2018 09:40:31 UTC] PHP Parse error:  syntax error, unexpected end of file in /var/www/wordpress/wp-content/themes/page5ph/single.php on line 46
+[23-Sep-2018 09:42:38 UTC] PHP Notice:  Use of undefined constant full - assumed 'full' in /var/www/wordpress/wp-content/themes/page5ph/single.php on line 14
+[23-Sep-2018 09:42:38 UTC] PHP Stack trace:
+[23-Sep-2018 09:42:38 UTC] PHP   1. {main}() /var/www/wordpress/index.php:0
+[23-Sep-2018 09:42:38 UTC] PHP   2. require() /var/www/wordpress/index.php:17
+[23-Sep-2018 09:42:38 UTC] PHP   3. require_once() /var/www/wordpress/wp-blog-header.php:19
+[23-Sep-2018 09:42:38 UTC] PHP   4. include() /var/www/wordpress/wp-includes/template-loader.php:74

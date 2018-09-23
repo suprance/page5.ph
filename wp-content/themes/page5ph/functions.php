@@ -208,6 +208,15 @@ function page5ph_widgets_init() {
     'before_title'  => '<h2 class="widget-title">',
     'after_title'   => '</h2>',
   ) );
+  register_sidebar( array(
+    'name'          => esc_html__('Footer Newsletter Footer', 'page5ph'),
+    'id'            => 'footer_newsletter_footer',
+    'description'   => esc_html__( 'Add email subscribers widget here.', 'page5ph' ),
+    'before_widget' => '<div>',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+  ) );
 }
 add_action( 'widgets_init', 'page5ph_widgets_init' );
 

@@ -30,6 +30,7 @@
               color: #fff;
               letter-spacing: 2px;
               text-transform: uppercase;
+              background-color: #f26f3f;
               &.entertainment{
                 background-color: #4135bf;
               }
@@ -44,6 +45,12 @@
               }
               &.tech{
                 background-color: #018FFF;
+              }
+              &.happenings{
+                background-color: #f26f3f;
+              }
+              &.centerfold{
+                background-color: #11ae9d;
               }
             }
           }

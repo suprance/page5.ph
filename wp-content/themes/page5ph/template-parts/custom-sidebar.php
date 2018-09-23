@@ -17,7 +17,7 @@
         if ($post_object) {
           $post = $post_object;
           // $author = get_the_author();
-          $postPublished = get_the_time('F y, Y');
+          $postPublished = get_the_date( get_option( 'F y, Y' ) );
 
           $catPost = get_the_category($post->ID);
           $catPostName ='';
@@ -39,6 +39,14 @@
 
             case 'Tech':
               $catColor = 'tech';
+              break;
+
+            case 'Happenings':
+              $catColor = 'happenings';
+              break;
+
+            case 'Centerfold':
+              $catColor = 'centerfold';
               break;
             
             default:

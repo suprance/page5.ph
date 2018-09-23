@@ -21,7 +21,7 @@
           $excerpt_length = apply_filters( 'excerpt_length', 30 );
           $excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
           $contentText = wp_trim_words( $text, $excerpt_length, $excerpt_more );
-          $postPublished = get_the_time('F y, Y', $pBValue['slider_posts']);
+          $postPublished = get_the_date( get_option( 'F y, Y' ), $pBValue['slider_posts'] );
           $postLink = $post['guid'];
           $postcat = get_the_category( $post['ID'] );
           $catPostLink = get_category_link($postcat[0]->cat_ID);

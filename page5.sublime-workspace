@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"esc_html",
+				"esc_html__"
+			],
+			[
+				"get_the_modifie",
+				"get_the_modified_time"
+			],
+			[
+				"get_po",
+				"get_post"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
 				"w",
 				"width"
 			],
@@ -28,20 +56,12 @@
 				"max-height"
 			],
 			[
-				"margin",
-				"margin-bottom"
-			],
-			[
 				"catpost",
 				"catPostName"
 			],
 			[
 				"padd",
 				"padding-bottom"
-			],
-			[
-				"text-",
-				"text-transform"
 			],
 			[
 				"padding",
@@ -238,10 +258,6 @@
 			[
 				"col_",
 				"col_md_jumbotron"
-			],
-			[
-				"margin-",
-				"margin-top\tproperty"
 			],
 			[
 				"home",
@@ -498,32 +514,52 @@
 			[
 				"ou",
 				"output\t<output>"
-			],
-			[
-				"list",
-				"list_output"
-			],
-			[
-				"langauge",
-				"languages"
-			],
-			[
-				"nth",
-				"nth-child"
-			],
-			[
-				"list-sty",
-				"list-style-type"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "wp-content/themes/page5ph/single.php",
+			"file": "wp-content/themes/page5ph/template-parts/centerfold-layout.php",
 			"settings":
 			{
-				"buffer_size": 511,
+				"buffer_size": 2922,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/template-parts/what-new-layout.php",
+			"settings":
+			{
+				"buffer_size": 4782,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/page-templates/page-banners/banner-home.php",
+			"settings":
+			{
+				"buffer_size": 3732,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/scss/flexible-layout/pages/_page-banner.scss",
+			"settings":
+			{
+				"buffer_size": 8072,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/template-parts/happenings-layout.php",
+			"settings":
+			{
+				"buffer_size": 4046,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -532,39 +568,53 @@
 			"file": "wp-content/themes/page5ph/template-parts/category-layout.php",
 			"settings":
 			{
-				"buffer_size": 2692,
+				"buffer_size": 3480,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<?php\n/**\n *  Template Name: Happenings Layout\n *\n * This is the most generic template file in a WordPress theme\n * and one of the two required files for a theme (the other being style.css).\n * It is used to display a page when nothing more specific matches a query.\n * E.g., it puts together the home page when no home.php file exists.\n *\n * @link https://developer.wordpress.org/themes/basics/template-hierarchy/\n *\n * @package 5pageph\n */\nget_header();\n?>\n  <div id=\"primary\" class=\"content-area\">\n    <main id=\"main\" class=\"site-main\">\n       <div class=\"container\">\n          <div class=\"row\">\n            <div class=\"col-12\">\n              <div class=\"happenings-name-holder\"><h3>Happenings</h3></div>\n            </div>\n            <div class=\"col-sm-12\">\n              <div class=\"bxslider-container\">\n                <div class=\"bxslider\">\n                  <?php\n                  $args = array(\n                    'posts_per_page' => 3,\n                    'cat' => '9',\n                  );\n                  $q = new WP_Query( $args);\n                  if ( $q->have_posts() ) {\n\n                     while ( $q->have_posts() ) {\n                      $q->the_post(); ?>\n                        <div> <img src=\"<?php _e(get_the_post_thumbnail_url()); ?>\" alt=\"\"></div>\n                    <?php }\n                    wp_reset_postdata(); ?>\n\n                  <?php }?>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-12\">\n              <div class=\"happenings-content\">\n                <div class=\"row\">\n                  <?php\n                  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;\n                  query_posts('cat=9&posts_per_page=9&paged='.$paged); // Happenings category is 9\n                  if ( have_posts() ) \n\n                     while ( have_posts() ) {\n                      the_post();\n                      $author = get_the_author();\n                      $postPublished = get_the_time('F y, Y');\n                      $text = apply_filters( 'the_content', strip_shortcodes( get_the_content() ) );\n                      $text = str_replace(']]>', ']]&gt;', $text);\n                      $excerpt_length = apply_filters( 'excerpt_length', 20 );\n                      $excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );\n                      $contentText = wp_trim_words( $text, $excerpt_length, $excerpt_more );\n                      $catLink = get_the_permalink();\n                      ?>\n                      <div class=\"col-sm-12 col-md-4\">\n                        <div class=\"happenings-container\">\n                          <div class=\"image-holder\">\n                            <a href=\"<?php _e($catLink); ?>\"><img src=\"<?php _e(get_the_post_thumbnail_url()); ?>\"></a>\n                          </div>\n                          <div class=\"post-meta\">\n                            <span class=\"avatar\"><i class=\"fa fa-user\"></i> <?php _e($author); ?></span>\n                            <span class=\"post-date\"><i class=\"fa fa-clock-o\"></i> <?php _e($postPublished); ?></span>\n                          </div>\n                          <h4><a href=\"<?php _e($catLink); ?>\"><?php the_title(); ?></a></h4>\n                          <div class=\"content-holder\">\n                            <?php _e($contentText); ?>\n                          </div>\n                        </div>\n                      </div>\n                    <?php }\n                    page5_pagination($wp_query->max_num_pages);\n                    wp_reset_postdata(); ?>\n\n                  <?php } else { ?>\n\n                    <div class=\"col\">\n                      <p class=\"text-center\">Sorry, no post/s at the moment in Happenings</p>\n                    </div>\n\n                  <?php } ?>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n    </main><!-- #main -->\n  </div><!-- #primary -->\n\n<?php\nget_footer();\n",
-			"file": "wp-content/themes/page5ph/template-parts/happenings-layout.php",
-			"file_size": 3967,
-			"file_write_time": 131816690570000000,
+			"file": "wp-content/themes/page5ph/template-parts/custom-sidebar.php",
 			"settings":
 			{
-				"buffer_size": 3966,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "wp-content/themes/page5ph/template-parts/single/single-leave-reply.php",
-			"settings":
-			{
-				"buffer_size": 2245,
+				"buffer_size": 2400,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": ".comments-area{\n  form{\n    .comment-notes{\n      font-family: 'oswald', sans-serif !important;\n    }\n    .comment-form-comment{\n      label{\n        display: none;\n      }\n      #comment{\n        width: 70%;\n        padding: 10px;\n        font-size: 14px;\n      }\n    }\n  }\n}",
-			"file": "wp-content/themes/page5ph/scss/flexible-layout/assets/_comments.scss",
-			"file_size": 276,
-			"file_write_time": 131816447760000000,
+			"file": "wp-content/themes/page5ph/footer.php",
 			"settings":
 			{
-				"buffer_size": 276,
+				"buffer_size": 6429,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/scss/flexible-layout/assets/_footer.scss",
+			"settings":
+			{
+				"buffer_size": 6164,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/js/main.js",
+			"settings":
+			{
+				"buffer_size": 6127,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/functions.php",
+			"settings":
+			{
+				"buffer_size": 11750,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -687,71 +737,76 @@
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts"
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets"
 	],
 	"file_history":
 	[
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/js/main.js",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/functions.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page-templates/page-banners/banner-home.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/single/_single-main.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_category.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/header/header-pre-header.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/header/_header_pre_header.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/footer.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page-templates/flexible-layouts/row-layouts/layout-default.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/header.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/category-layout.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_flex-layout.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/header/header-menu.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/header/_header_menu.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/_footer.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page-templates/flexible-layouts/row-layouts/layout-column-two.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_happenings.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_whats-new-layout.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/happenings-layout.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/_sidebar.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_centerfold-layout.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_page-banner.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/category.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/custom-sidebar.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/single/single-centerfold-articles.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/what-new-layout.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page-templates/page-banners/default.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/header/header-adver.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/_comments.scss",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/single/single-leave-reply.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/single.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-includes/comment-template.php",
 		"/Users/cbarrinuevo/code/page5.ph/data/wocker/wp-includes/comment-template.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/_nav.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/single/single-comments.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/single/single-related-articles.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/category-layout.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/header.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/search.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/better-comments.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/search/_search-main.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/inc/template-tags.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/content-search.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/header/header-pre-header.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/js/main.js",
 		"/Users/cbarrinuevo/code/page5.ph/data/wocker/wordpress-2018-09-17-355b41e.sql",
 		"/Users/cbarrinuevo/code/page5.ph/wp-includes/link-template.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/_important-layout.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/category.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_whats-new-layout.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_category.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/single.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/centerfold-layout.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/single/single-centerfold-articles.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_centerfold-layout.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/single-centerfold.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/single/single-category-layout.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/happenings-layout.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/custom-sidebar.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/_page-layout.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_happenings.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/css/bxslider.css",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/js/bxslider.min.js",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/_pagination.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/what-new-layout.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/index.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/single/_single-main.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/404.php",
 		"/Users/cbarrinuevo/code/page5.ph/data/wocker/wordpress-2018-09-16-c19de0c.sql",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/404-default.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/_footer.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/footer.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/_sidebar.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/single/single-leave-reply.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page-templates/page-banners/banner-home.php",
 		"/Users/cbarrinuevo/code/page5.ph/data/wocker/wp-includes/class-wp-query.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/single-category.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-includes/category.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/sidebar.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/header/_header_ads.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/_header.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/header/_header_pre_header.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/header/_header_menu.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/style.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/header/_header.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_page-banner.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/footer.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/header/_header_menu.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page-templates/page-banners/_main-banner.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page-templates/page-banners/default.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/fonts-list/_font-oswald.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/_variable.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/style.css",
@@ -764,16 +819,13 @@
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/fonts-list/_font-notosans.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/acf-layout.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/content-page.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/header/header-menu.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_flex-layout.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/content-none.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/content.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page-templates/flexible-layouts/_custom-layouts.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/debug.log",
 		"/Users/cbarrinuevo/code/page5.ph/data/wocker/wp-config.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/_mixins.scss",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/header/header-adver.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/header/header-banner.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/header/_header.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/header/_header_ads.scss",
@@ -816,14 +868,11 @@
 		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/scss/_responsive.scss",
 		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/scss/site/_layout-2018.scss",
 		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/functions.php",
-		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/js/jquery.min.js",
-		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/lib/gengo-shortcodes.php",
-		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/page-templates/custom-header.php",
-		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/js/zendesk.widget.js"
+		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/js/jquery.min.js"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -838,6 +887,43 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"h2",
+			"sidebar",
+			"<span>",
+			"post-meta",
+			" class=\"right-holder\"",
+			"image-holder",
+			"author_name",
+			"right",
+			"class=\"left\"",
+			"<span",
+			"post-meta",
+			"span",
+			"post-meta",
+			".caption",
+			"d-md-none",
+			"slider",
+			"default-preview",
+			"avatar",
+			"author_name",
+			"$postLink",
+			"postlink",
+			"slick",
+			"header-fb",
+			"author",
+			"site-branding",
+			"menu-site-branding",
+			"image-holder",
+			"100ms",
+			"author",
+			"$author",
+			"post_author",
+			"200ms",
+			"media-holder",
+			"media",
+			"social",
+			"200ms",
+			"youtube_link",
 			"comment_form",
 			"default",
 			"$new_default",
@@ -928,44 +1014,7 @@
 			"cta_button_one",
 			"var",
 			"'user_'.$user_id",
-			"repeater",
-			"p_posts",
-			"repeater_field_name",
-			"_e();",
-			"a href=\"#\"",
-			"h_main_logo",
-			"admin",
-			"/fonts/fontawesome-webfont",
-			".menu-primary",
-			"scroll",
-			"nexy",
-			"n",
-			"next",
-			"https://staging.gengo.com/wp-content/uploads/2018/07/hero3_darken-long.jpg",
-			"mobile-button",
-			"toggleClass",
-			"slick-list",
-			"slick-slider",
-			"<p class=\"post-meta-description\">",
-			"<span class=\"post-date\">",
-			"post-description",
-			"<span class=\"post-date\">",
-			"<h5>This is a caption for slide",
-			"<img src=\"https://staging.gengo.com/wp-content/uploads/2018/07/hero3_darken-long.jpg\" alt=\"\">",
-			"Michelle Dy</span>",
-			"<span class=\"avatar\">",
-			"category\"",
-			"category",
-			"100",
-			"$gengo",
-			"https://staging.gengo.com/wp-content/uploads/2028/17/hero52_darken-long.jpg",
-			"Slide ",
-			"Slide",
-			"footer>",
-			"footer",
-			"<a href=\"#\">",
-			"sidepanel",
-			"header-center-"
+			"repeater"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -987,24 +1036,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "wp-content/themes/page5ph/single.php",
+					"file": "wp-content/themes/page5ph/template-parts/centerfold-layout.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 511,
+						"buffer_size": 2922,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								325,
-								325
+								2540,
+								2542
 							]
 						],
 						"settings":
@@ -1017,24 +1066,24 @@
 								{
 									"1":
 									[
-										327,
-										328
+										2097,
+										2100
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
 									]
 								},
 								"open":
 								{
 									"1":
 									[
-										272,
-										273
+										1102,
+										1105
 									]
 								},
 								"unmatched":
@@ -1043,61 +1092,61 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
-								"bh_single_quote_content"
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -1105,203 +1154,8 @@
 								{
 									"1":
 									[
-										327,
-										328
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										272,
-										273
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "wp-content/themes/page5ph/template-parts/category-layout.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2692,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2356,
-								2358
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2365,
-										2366
+										2556,
+										2557
 									]
 								},
 								"icon":
@@ -1316,197 +1170,12 @@
 								{
 									"1":
 									[
-										2338,
-										2339
+										2528,
+										2529
 									]
 								},
 								"unmatched":
 								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 195.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "wp-content/themes/page5ph/template-parts/happenings-layout.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3966,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1807,
-								1807
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										3596,
-										3597
-									]
 								}
 							},
 							"bracket_highlighter.regions":
@@ -1574,222 +1243,27 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 223.0,
+						"translation.y": 159.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "wp-content/themes/page5ph/template-parts/single/single-leave-reply.php",
+					"buffer": 1,
+					"file": "wp-content/themes/page5ph/template-parts/what-new-layout.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2245,
+						"buffer_size": 4782,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2218,
-								2218
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										3385,
-										3386
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										3384,
-										3385
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "wp-content/themes/page5ph/scss/flexible-layout/assets/_comments.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 276,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								204,
-								206
+								1351,
+								1351
 							]
 						],
 						"settings":
@@ -1813,61 +1287,61 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
-								"bh_single_quote_content"
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -1875,8 +1349,8 @@
 								{
 									"1":
 									[
-										263,
-										264
+										4262,
+										4263
 									]
 								},
 								"icon":
@@ -1891,8 +1365,8 @@
 								{
 									"1":
 									[
-										187,
-										188
+										1251,
+										1252
 									]
 								},
 								"unmatched":
@@ -1901,74 +1375,1908 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
-								"bh_single_quote_content"
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_gutter_is_enabled": true,
 							"incomplete_sync": null,
-							"open_with_edit": true,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 188.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "wp-content/themes/page5ph/page-templates/page-banners/banner-home.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3732,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1336,
+								1336
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3692,
+										3693
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										776,
+										777
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3692,
+										3693
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										776,
+										777
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "wp-content/themes/page5ph/scss/flexible-layout/pages/_page-banner.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8072,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2464,
+								2464
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3760,
+										3761
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2443,
+										2444
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3760,
+										3761
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2443,
+										2444
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 942.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "wp-content/themes/page5ph/template-parts/happenings-layout.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4046,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1986,
+								1986
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3542,
+										3543
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1901,
+										1902
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 406.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "wp-content/themes/page5ph/template-parts/category-layout.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								451,
+								395
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2659,
+										2660
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										308,
+										309
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2674,
+										2675
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										308,
+										309
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "wp-content/themes/page5ph/template-parts/custom-sidebar.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								643,
+								587
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2233,
+										2234
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										502,
+										503
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "wp-content/themes/page5ph/footer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5169,
+								5169
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										5515,
+										5516
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										5418,
+										5419
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										5262,
+										5265
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										5146,
+										5149
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1196.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "wp-content/themes/page5ph/scss/flexible-layout/assets/_footer.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3540,
+								3415
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3910,
+										3911
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										3104,
+										3105
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3880,
+										3881
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										3399,
+										3400
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1454.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "wp-content/themes/page5ph/js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3253,
+								3253
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+									"1":
+									[
+										3158,
+										3159
+									]
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1104.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "wp-content/themes/page5ph/functions.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11750,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6400,
+								6376
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										6580,
+										6581
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										6279,
+										6280
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										6400,
+										6401
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"region.greenish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										6375,
+										6376
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2437.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -2030,6 +3338,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"js/main.js",
+				"wp-content/themes/page5ph/js/main.js"
+			],
+			[
+				"footer.php",
+				"wp-content/themes/page5ph/footer.php"
+			],
+			[
+				"/js/main.js",
+				"wp-content/themes/page5ph/js/main.js"
+			],
 			[
 				"functions",
 				"wp-content/themes/page5ph/functions.php"
@@ -2529,18 +3849,6 @@
 			[
 				"gengomain.",
 				"wp-content/themes/gengo/js/main.js"
-			],
-			[
-				"pluginsewwwauthors",
-				"wp-content/plugins/ewww-image-optimizer-cloud/vendor/pel/AUTHORS"
-			],
-			[
-				"gengostyle.sc",
-				"wp-content/themes/gengo/scss/style.scss"
-			],
-			[
-				"gengostyle.",
-				"wp-content/themes/gengo/style.css"
 			]
 		],
 		"width": 0.0

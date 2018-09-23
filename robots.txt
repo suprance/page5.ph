@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: http://page5.ph/sitemap_index.xml
+Sitemap: http://page5.ph/category-sitemap.xml
+Sitemap: http://page5.ph/post-sitemap.xml
+
+# Certain social media sites are whitelisted to allow crawlers to access page markup when links to /images are shared. 
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Googlebot
+Allow: /

@@ -33,7 +33,7 @@ get_header();
 
                      while ( $q->have_posts() ) {
                       $q->the_post(); ?>
-                        <div> <img src="<?php _e(get_the_post_thumbnail_url()); ?>" alt=""></div>
+                        <div><a href="<?php _e(get_the_permalink()); ?>"><img src="<?php _e(get_the_post_thumbnail_url()); ?>" alt=""></a></div>
                     <?php }
                     wp_reset_postdata(); ?>
 
@@ -52,7 +52,7 @@ get_header();
                      while ( have_posts() ) {
                       the_post();
                       $author = get_the_author();
-                      $postPublished = get_the_time('F y, Y');
+                      $postPublished = get_the_date( get_option( 'F y, Y' ) );
                       $text = apply_filters( 'the_content', strip_shortcodes( get_the_content() ) );
                       $text = str_replace(']]>', ']]&gt;', $text);
                       $excerpt_length = apply_filters( 'excerpt_length', 20 );
