@@ -24,6 +24,7 @@
           $postPublished = get_the_date( get_option( 'F y, Y' ), $pBValue['slider_posts'] );
           $postLink = $post['guid'];
           $postcat = get_the_category( $post['ID'] );
+          $catPostName = '';
           $catPostLink = get_category_link($postcat[0]->cat_ID);
 
           if ( ! empty( $postcat ) ) {
@@ -49,10 +50,12 @@
 
             case 'Happenings':
               $catColor = 'happenings';
+              $catPostLink = '/happenings/';
               break;
 
             case 'Centerfold':
               $catColor = 'centerfold';
+              $catPostLink = '/centerfold/';
               break;
             
             default:

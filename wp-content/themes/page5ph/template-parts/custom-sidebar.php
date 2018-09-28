@@ -78,6 +78,6 @@
   </div>
   <h4>Adverstisement</h4>
   <div class="advertisement-container">
-    <?php _e(adrotate_ad(2)); ?>
+    <?php dynamic_sidebar( 'sidebar_adsense' ); ?>
   </div>
 </aside><!-- #secondary -->

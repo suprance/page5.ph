@@ -70,11 +70,13 @@
               <?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
               <div class="fb-comments" data-href="<?php _e($actual_link); ?>" data-numposts="5"></div>
             </div>
+            <?php dynamic_sidebar( 'below_fb_comment_adsense' ); ?>
 
             <div class="related-articles-container">
               <?php include_once('single/single-related-articles.php'); ?>
             </div>
           </div>
+
           <div class="col-sm-12 col-md-6 col-lg-4">
             <?php include_once('custom-sidebar.php'); ?>
           </div>

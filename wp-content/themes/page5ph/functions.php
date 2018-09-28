@@ -217,6 +217,42 @@ function page5ph_widgets_init() {
     'before_title'  => '<h5>',
     'after_title'   => '</h5>',
   ) );
+  register_sidebar( array(
+    'name'          => esc_html__('Header adsense', 'page5ph'),
+    'id'            => 'header_adsense',
+    'description'   => esc_html__( 'Add google adsense in the header.', 'page5ph' ),
+    'before_widget' => '<div id="header-google-adsense">',
+    'after_widget'  => '</div>',
+    'before_title'  => '',
+    'after_title'   => '',
+  ) );
+  register_sidebar( array(
+    'name'          => esc_html__('Sidebar adsense', 'page5ph'),
+    'id'            => 'sidebar_adsense',
+    'description'   => esc_html__( 'Add google adsense in the sidebar.', 'page5ph' ),
+    'before_widget' => '<div id="sidebar-google-adsense">',
+    'after_widget'  => '</div>',
+    'before_title'  => '',
+    'after_title'   => '',
+  ) );
+  register_sidebar( array(
+    'name'          => esc_html__('Below Facebook comment adsense', 'page5ph'),
+    'id'            => 'below_fb_comment_adsense',
+    'description'   => esc_html__( 'Add google adsense below the fb comment.', 'page5ph' ),
+    'before_widget' => '<div id="below-fb-comment-google-adsense">',
+    'after_widget'  => '</div>',
+    'before_title'  => '',
+    'after_title'   => '',
+  ) );
+  register_sidebar( array(
+    'name'          => esc_html__('Footer adsense', 'page5ph'),
+    'id'            => 'footer_adsense',
+    'description'   => esc_html__( 'Add google adsense below in the footer.', 'page5ph' ),
+    'before_widget' => '<div id="footer-google-adsense">',
+    'after_widget'  => '</div>',
+    'before_title'  => '',
+    'after_title'   => '',
+  ) );
 }
 add_action( 'widgets_init', 'page5ph_widgets_init' );
 
