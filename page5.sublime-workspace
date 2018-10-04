@@ -523,7 +523,71 @@
 			"file": "wp-content/themes/page5ph/functions.php",
 			"settings":
 			{
-				"buffer_size": 12494,
+				"buffer_size": 13283,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/template-parts/category-layout.php",
+			"settings":
+			{
+				"buffer_size": 3549,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/header.php",
+			"settings":
+			{
+				"buffer_size": 1749,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/debug.log",
+			"settings":
+			{
+				"buffer_size": 50136,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/index.php",
+			"settings":
+			{
+				"buffer_size": 28,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-admin/includes/deprecated.php",
+			"settings":
+			{
+				"buffer_size": 39173,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n/**\n * Tools\n *\n * These are functions used for displaying QUADS tools such as the import/export system.\n *\n * @package     QUADS\n * @subpackage  Admin/Tools\n * @copyright   Copyright (c) 2015, Pippin Williamson, René Hermenau\n * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License\n */\n\n// Exit if accessed directly\nif ( ! defined( 'ABSPATH' ) ) exit;\n\n/**\n * Tools\n *\n * Shows the tools panel which contains QUADS-specific tools including the\n * built-in import/export system.\n *\n * @since       0.9.0\n * @author      Daniel J Griffiths, René Hermenau\n * @return      void\n */\nfunction quads_tools_page() {\n\t$active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'import_export';\n?>\n\t<div class=\"wrap\">\n\t\t<?php screen_icon(); ?>\n\t\t<h2 class=\"nav-tab-wrapper\">\n\t\t\t<?php\n\t\t\tforeach( quads_get_tools_tabs() as $tab_id => $tab_name ) {\n\n\t\t\t\t$tab_url = add_query_arg( array(\n\t\t\t\t\t'tab' => $tab_id\n\t\t\t\t) );\n\n\t\t\t\t$tab_url = remove_query_arg( array(\n\t\t\t\t\t'quads-message'\n\t\t\t\t), $tab_url );\n\n\t\t\t\t$active = $active_tab == $tab_id ? ' nav-tab-active' : '';\n\t\t\t\techo '<a href=\"' . esc_url( $tab_url ) . '\" title=\"' . esc_attr( $tab_name ) . '\" class=\"nav-tab' . $active . '\">' . esc_html( $tab_name ) . '</a>';\n\n\t\t\t}\n\t\t\t?>\n\t\t</h2>\n\t\t<div class=\"metabox-holder\">\n\t\t\t<?php\n\t\t\tdo_action( 'quads_tools_tab_' . $active_tab );\n\t\t\t?>\n\t\t</div><!-- .metabox-holder -->\n\t</div><!-- .wrap -->\n<?php\n}\n\n\n/**\n * Retrieve tools tabs\n *\n * @since       2.1.6\n * @return      array\n */\nfunction quads_get_tools_tabs() {\n\n\t$tabs                  = array();\n\t$tabs['import_export'] = __( 'Import/Export', 'quick-adsense-reloaded' );\n       $tabs['system_info'] = __( 'System Info', 'quick-adsense-reloaded' );\n\n\treturn apply_filters( 'quads_tools_tabs', $tabs );\n}\n\n\n\n/**\n * Display the tools import/export tab\n *\n * @since       2.1.6\n * @return      void\n */\nfunction quads_tools_import_export_display() {\n    \n        if( ! current_user_can( 'update_plugins' ) ) {\n\t\treturn;\n\t}\n    \n\tdo_action( 'quads_tools_import_export_before' );\n?>\n        <!-- We have to close the old form first//-->\n\n\t<div class=\"quads-postbox\">\n\t\t<h3><span><?php _e( 'Export Settings', 'quick-adsense-reloaded' ); ?></span></h3>\n\t\t<div class=\"inside\">\n\t\t\t<p><?php _e( 'Export the Quick AdSense Reloaded settings for this site as a .json file. This allows you to easily import the configuration into another site.', 'quick-adsense-reloaded' ); ?></p>\n\t\t\t<form method=\"post\" action=\"<?php echo admin_url( 'admin.php?page=quads-settings&tab=imexport' ); ?>\" id=\"quads-export-settings\">\n\t\t\t\t<p><input type=\"hidden\" name=\"quads-action\" value=\"export_settings\" /></p>\n\t\t\t\t<p>\n\t\t\t\t\t<?php wp_nonce_field( 'quads_export_nonce', 'quads_export_nonce' ); ?>\n\t\t\t\t\t<?php submit_button( __( 'Export', 'quick-adsense-reloaded' ), 'primary', 'submit', false ); ?>\n\t\t\t\t</p>\n\t\t\t</form>\n\t\t</div><!-- .inside -->\n\t</div><!-- .postbox -->\n\n\t<div class=\"quads-postbox\">\n\t\t<h3><span><?php _e( 'Import Settings', 'quick-adsense-reloaded' ); ?></span></h3>\n\t\t<div class=\"inside\">\n\t\t\t<p><?php _e( 'Import the Quick AdSense Reloaded settings from a .json file. This file can be obtained by exporting the settings on another site using the form above.', 'quick-adsense-reloaded' ); ?></p>\n\t\t\t<form method=\"post\" enctype=\"multipart/form-data\" action=\"<?php echo admin_url( 'admin.php?page=quads-settings&tab=imexport' ); ?>\">\n\t\t\t\t<p>\n\t\t\t\t\t<input type=\"file\" name=\"import_file\"/>\n\t\t\t\t</p>\n\t\t\t\t<p>\n\t\t\t\t\t<input type=\"hidden\" name=\"quads-action\" value=\"import_settings\" />\n\t\t\t\t\t<?php wp_nonce_field( 'quads_import_nonce', 'quads_import_nonce' ); ?>\n\t\t\t\t\t<?php submit_button( __( 'Import', 'quick-adsense-reloaded' ), 'secondary', 'submit', false ); ?>\n\t\t\t\t</p>\n\t\t\t</form>\n\t\t</div><!-- .inside -->\n\t</div><!-- .postbox -->\n<?php\n\tdo_action( 'quads_tools_import_export_after' );\n}\nadd_action( 'quads_tools_tab_import_export', 'quads_tools_import_export_display' );\n\n\n\n/* check if function is disabled or not\n * \n * @returns bool\n * @since 2.1.6\n */\nfunction quads_is_func_disabled( $function ) {\n  $disabled = explode( ',',  ini_get( 'disable_functions' ) );\n  return in_array( $function, $disabled );\n}\n\n/**\n * Process a settings export that generates a .json file of the Quick AdSense Reloaded settings\n *\n * @since       2.1.6\n * @return      void\n */\nfunction quads_tools_import_export_process_export() {\n\tif( empty( $_POST['quads_export_nonce'] ) )\n\t\treturn;\n\n\tif( ! wp_verify_nonce( $_POST['quads_export_nonce'], 'quads_export_nonce' ) )\n\t\treturn;\n\n\tif( ! current_user_can( 'manage_options' ) )\n\t\treturn;\n\n\t$settings = array();\n\t$settings = get_option( 'quads_settings' );\n\n\tignore_user_abort( true );\n\n\tif ( ! quads_is_func_disabled( 'set_time_limit' ) )\n\t\t@set_time_limit( 0 );\n\n\tnocache_headers();\n\theader( 'Content-Type: application/json; charset=utf-8' );\n\theader( 'Content-Disposition: attachment; filename=' . apply_filters( 'quads_settings_export_filename', 'quads-settings-export-' . date( 'm-d-Y' ) ) . '.json' );\n\theader( \"Expires: 0\" );\n\n\techo json_encode( $settings );\n\texit;\n}\nadd_action( 'quads_export_settings', 'quads_tools_import_export_process_export' );\n\n/**\n * Get File Extension\n *\n * Returns the file extension of a filename.\n *\n * @since 1.0\n * @param unknown $str File name\n * @return mixed File extension\n */\n function quads_get_file_extension( $str ) {\n     $parts = explode( '.', $str );\n     return end( $parts );\n}\n\n/* Convert an object to an associative array.\n * Can handle multidimensional arrays\n * \n * @returns array\n * @since 2.1.6\n */\nfunction quads_object_to_array( $data ) {\n  if ( is_array( $data ) || is_object( $data ) ) {\n    $result = array();\n    foreach ( $data as $key => $value ) {\n      $result[ $key ] = quads_object_to_array( $value );\n    }\n    return $result;\n  }\n  return $data;\n}\n\n/**\n * Process a settings import from a json file\n *\n * @since 2.1.6\n * @return void\n */\nfunction quads_tools_import_export_process_import() {\n\tif( empty( $_POST['quads_import_nonce'] ) )\n\t\treturn;\n\n\tif( ! wp_verify_nonce( $_POST['quads_import_nonce'], 'quads_import_nonce' ) )\n\t\treturn;\n\n\tif( ! current_user_can( 'update_plugins' ) )\n\t\treturn;\n\n    if( quads_get_file_extension( $_FILES['import_file']['name'] ) != 'json' ) {\n        wp_die( __( 'Please upload a valid .json file', 'quick-adsense-reloaded' ) );\n    }\n\n\t$import_file = $_FILES['import_file']['tmp_name'];\n\n\tif( empty( $import_file ) ) {\n\t\twp_die( __( 'Please upload a file to import', 'quick-adsense-reloaded' ) );\n\t}\n\n\t// Retrieve the settings from the file and convert the json object to an array\n\t$settings = quads_object_to_array( json_decode( file_get_contents( $import_file ) ) );\n\n\tupdate_option( 'quads_settings', $settings );\n\n\twp_safe_redirect( admin_url( 'admin.php?page=quads-settings&quads-message=settings-imported&tab=imexport' ) ); exit;\n\n}\nadd_action( 'quads_import_settings', 'quads_tools_import_export_process_import' );\n\n\n/**\n * Display the system info tab\n *\n * @since       2.1.6\n * @return      void\n * @change      2.3.1\n */\nfunction quads_tools_sysinfo_display() {\n    \n    if( ! current_user_can( 'update_plugins' ) ) {\n\t\treturn;\n\t}\n        \n?>\n\t<!--<form action=\"<?php //echo esc_url( admin_url( 'admin.php?page=quads-settings&tab=system_info' ) ); ?>\" method=\"post\" dir=\"ltr\">//-->\n\t\t<textarea readonly=\"readonly\" onclick=\"this.focus(); this.select()\" id=\"system-info-textarea\" name=\"quads-sysinfo\" title=\"To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).\"><?php echo quads_tools_sysinfo_get(); ?></textarea>\n\t\t<!--\n                <p class=\"submit\">\n\t\t\t<input type=\"hidden\" name=\"quads-action\" value=\"download_sysinfo\" />-->\n\t\t\t<?php //submit_button( 'Download System Info File', 'primary', 'quads-download-sysinfo', false ); ?>\n\t\t<!--</p>//-->\n\t<!--</form>//-->\n<?php\n       echo '<br>' . quads_render_backup_settings(); \n\n}\nadd_action( 'quads_tools_tab_system_info', 'quads_tools_sysinfo_display' );\n\n/**\n * Render textarea with backup settings from previous version 1.5.2\n * @return string\n */\nfunction quads_render_backup_settings(){\n       if( ! current_user_can( 'update_plugins' ) ) {\n\t\treturn;\n\t}\n       \n       $settings = json_encode(get_option('quads_settings_1_5_2'));\n       echo '<h3>' . __('Backup data from WP QUADS 1.5.2', 'quick-adsense-reloaded') .  '</h3>' . __('Copy and paste this data into an empty text file with extension *.json');       \n       ?>\n\n       <textarea readonly=\"readonly\" onclick=\"this.focus(); this.select()\" id=\"backup-settings-textarea\" name=\"quads-backupsettings\" title=\"To copy the backup settings info, click below then press Ctrl + C (PC) or Cmd + C (Mac).\"><?php echo $settings; ?></textarea>\n<?php\n}\n\n\n/**\n * Get system info\n *\n * @since       2.1.6\n * @access      public\n * @global      object $wpdb Used to query the database using the WordPress Database API\n * @global      array $quads_options Array of all QUADS options\n * @return      string $return A string containing the info to output\n */\nfunction quads_tools_sysinfo_get() {\n\tglobal $wpdb, $quads_options;\n\n\tif( !class_exists( 'Browser' ) )\n\t\trequire_once QUADS_PLUGIN_DIR . 'includes/libraries/browser.php';\n\n\t$browser = new Browser();\n\n\t// Get theme info\n\tif( get_bloginfo( 'version' ) < '3.4' ) {\n\t\t$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );\n\t\t$theme      = $theme_data['Name'] . ' ' . $theme_data['Version'];\n\t} else {\n\t\t$theme_data = wp_get_theme();\n\t\t$theme      = $theme_data->Name . ' ' . $theme_data->Version;\n\t}\n\n\n\t$return  = '### Begin System Info ###' . \"\\n\\n\";\n\n\t// Start with the basics...\n\t$return .= '-- Site Info' . \"\\n\\n\";\n\t$return .= 'Site URL:                 ' . site_url() . \"\\n\";\n\t$return .= 'Home URL:                 ' . home_url() . \"\\n\";\n\t$return .= 'Multisite:                ' . ( is_multisite() ? 'Yes' : 'No' ) . \"\\n\";\n\n\t$return  = apply_filters( 'quads_sysinfo_after_site_info', $return );\n\n\n\t// The local users' browser information, handled by the Browser class\n\t$return .= \"\\n\" . '-- User Browser' . \"\\n\\n\";\n\t$return .= $browser;\n\n\t$return  = apply_filters( 'quads_sysinfo_after_user_browser', $return );\n\n\t// WordPress configuration\n\t$return .= \"\\n\" . '-- WordPress Configuration' . \"\\n\\n\";\n\t$return .= 'Version:                  ' . get_bloginfo( 'version' ) . \"\\n\";\n\t$return .= 'Language:                 ' . ( defined( 'WPLANG' ) && WPLANG ? WPLANG : 'en_US' ) . \"\\n\";\n\t$return .= 'Permalink Structure:      ' . ( get_option( 'permalink_structure' ) ? get_option( 'permalink_structure' ) : 'Default' ) . \"\\n\";\n\t$return .= 'Active Theme:             ' . $theme . \"\\n\";\n\t$return .= 'Show On Front:            ' . get_option( 'show_on_front' ) . \"\\n\";\n\n\t// Only show page specs if frontpage is set to 'page'\n\tif( get_option( 'show_on_front' ) == 'page' ) {\n\t\t$front_page_id = get_option( 'page_on_front' );\n\t\t$blog_page_id = get_option( 'page_for_posts' );\n\n\t\t$return .= 'Page On Front:            ' . ( $front_page_id != 0 ? get_the_title( $front_page_id ) . ' (#' . $front_page_id . ')' : 'Unset' ) . \"\\n\";\n\t\t$return .= 'Page For Posts:           ' . ( $blog_page_id != 0 ? get_the_title( $blog_page_id ) . ' (#' . $blog_page_id . ')' : 'Unset' ) . \"\\n\";\n\t}\n\n\t// Make sure wp_remote_post() is working\n\t$request['cmd'] = '_notify-validate';\n\n\t$params = array(\n\t\t'sslverify'     => false,\n\t\t'timeout'       => 60,\n\t\t'user-agent'    => 'QUADS/' . QUADS_VERSION,\n\t\t'body'          => $request\n\t);\n\n\t$response = wp_remote_post( 'https://www.paypal.com/cgi-bin/webscr', $params );\n\n\tif( !is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {\n\t\t$WP_REMOTE_POST = 'wp_remote_post() works';\n\t} else {\n\t\t$WP_REMOTE_POST = 'wp_remote_post() does not work';\n\t}\n\n\t$return .= 'Remote Post:              ' . $WP_REMOTE_POST . \"\\n\";\n\t$return .= 'Table Prefix:             ' . 'Length: ' . strlen( $wpdb->prefix ) . '   Status: ' . ( strlen( $wpdb->prefix ) > 16 ? 'ERROR: Too long' : 'Acceptable' ) . \"\\n\";\n\t$return .= 'WP_DEBUG:                 ' . ( defined( 'WP_DEBUG' ) ? WP_DEBUG ? 'Enabled' : 'Disabled' : 'Not set' ) . \"\\n\";\n\t$return .= 'Memory Limit:             ' . WP_MEMORY_LIMIT . \"\\n\";\n\t$return .= 'Registered Post Stati:    ' . implode( ', ', get_post_stati() ) . \"\\n\";\n\n\t$return  = apply_filters( 'quads_sysinfo_after_wordpress_config', $return );\n\n\t// QUADS configuration\n\t$return .= \"\\n\" . '-- QUADS Configuration' . \"\\n\\n\";\n\t$return .= 'Version:                  ' . QUADS_VERSION . \"\\n\";\n\t$return .= 'Upgraded From:            ' . get_option( 'quads_version_upgraded_from', 'None' ) . \"\\n\";\n\n\t$return  = apply_filters( 'quads_sysinfo_after_quads_config', $return );\n\n\n\t// WordPress active plugins\n\t$return .= \"\\n\" . '-- WordPress Active Plugins' . \"\\n\\n\";\n\t\n\t$plugins = get_plugins();\n\t$active_plugins = get_option( 'active_plugins', array() );\n\n\tforeach( $plugins as $plugin_path => $plugin ) {\n\t\tif( !in_array( $plugin_path, $active_plugins ) )\n\t\t\tcontinue;\n\n\t\t$return .= $plugin['Name'] . ': ' . $plugin['Version'] . \"\\n\";\n\t}\n\n\t$return  = apply_filters( 'quads_sysinfo_after_wordpress_plugins', $return );\n\n\t// WordPress inactive plugins\n\t$return .= \"\\n\" . '-- WordPress Inactive Plugins' . \"\\n\\n\";\n\n\tforeach( $plugins as $plugin_path => $plugin ) {\n\t\tif( in_array( $plugin_path, $active_plugins ) )\n\t\t\tcontinue;\n\n\t\t$return .= $plugin['Name'] . ': ' . $plugin['Version'] . \"\\n\";\n\t}\n\n\t$return  = apply_filters( 'quads_sysinfo_after_wordpress_plugins_inactive', $return );\n\n\tif( is_multisite() ) {\n\t\t// WordPress Multisite active plugins\n\t\t$return .= \"\\n\" . '-- Network Active Plugins' . \"\\n\\n\";\n\n\t\t$plugins = wp_get_active_network_plugins();\n\t\t$active_plugins = get_site_option( 'active_sitewide_plugins', array() );\n\n\t\tforeach( $plugins as $plugin_path ) {\n\t\t\t$plugin_base = plugin_basename( $plugin_path );\n\n\t\t\tif( !array_key_exists( $plugin_base, $active_plugins ) )\n\t\t\t\tcontinue;\n\n\t\t\t$plugin  = get_plugin_data( $plugin_path );\n\t\t\t$return .= $plugin['Name'] . ': ' . $plugin['Version'] . \"\\n\";\n\t\t}\n\n\t\t$return  = apply_filters( 'quads_sysinfo_after_wordpress_ms_plugins', $return );\n\t}\n\n\t// Server configuration (really just versioning)\n\t$return .= \"\\n\" . '-- Webserver Configuration' . \"\\n\\n\";\n\t$return .= 'PHP Version:              ' . PHP_VERSION . \"\\n\";\n\t$return .= 'MySQL Version:            ' . $wpdb->db_version() . \"\\n\";\n\t$return .= 'Webserver Info:           ' . $_SERVER['SERVER_SOFTWARE'] . \"\\n\";\n\n\t$return  = apply_filters( 'quads_sysinfo_after_webserver_config', $return );\n\n\t// PHP configs... now we're getting to the important stuff\n\t$return .= \"\\n\" . '-- PHP Configuration' . \"\\n\\n\";\n\t$return .= 'Memory Limit:             ' . ini_get( 'memory_limit' ) . \"\\n\";\n\t$return .= 'Upload Max Size:          ' . ini_get( 'upload_max_filesize' ) . \"\\n\";\n\t$return .= 'Post Max Size:            ' . ini_get( 'post_max_size' ) . \"\\n\";\n\t$return .= 'Upload Max Filesize:      ' . ini_get( 'upload_max_filesize' ) . \"\\n\";\n\t$return .= 'Time Limit:               ' . ini_get( 'max_execution_time' ) . \"\\n\";\n\t$return .= 'Max Input Vars:           ' . ini_get( 'max_input_vars' ) . \"\\n\";\n\t$return .= 'Display Errors:           ' . ( ini_get( 'display_errors' ) ? 'On (' . ini_get( 'display_errors' ) . ')' : 'N/A' ) . \"\\n\";\n\n\t$return  = apply_filters( 'quads_sysinfo_after_php_config', $return );\n\n\t// PHP extensions and such\n\t$return .= \"\\n\" . '-- PHP Extensions' . \"\\n\\n\";\n\t$return .= 'cURL:                     ' . ( function_exists( 'curl_init' ) ? 'Supported' : 'Not Supported' ) . \"\\n\";\n\t$return .= 'fsockopen:                ' . ( function_exists( 'fsockopen' ) ? 'Supported' : 'Not Supported' ) . \"\\n\";\n\t$return .= 'SOAP Client:              ' . ( class_exists( 'SoapClient' ) ? 'Installed' : 'Not Installed' ) . \"\\n\";\n\t$return .= 'Suhosin:                  ' . ( extension_loaded( 'suhosin' ) ? 'Installed' : 'Not Installed' ) . \"\\n\";\n\n\t$return  = apply_filters( 'quads_sysinfo_after_php_ext', $return );\n\n\t$return .= \"\\n\" . '### End System Info ###';\n\n\treturn $return;\n}\n\n\n/**\n * Generates a System Info download file\n *\n * @since       2.0\n * @return      void\n */\nfunction quads_tools_sysinfo_download() {\n    \n        if( ! current_user_can( 'update_plugins' ) )\n\t\treturn;\n    \n\tnocache_headers();\n\n\theader( 'Content-Type: text/plain' );\n\theader( 'Content-Disposition: attachment; filename=\"quads-system-info.txt\"' );\n\n\techo wp_strip_all_tags( $_POST['quads-sysinfo'] );\n\twp_die();\n}\nadd_action( 'quads_download_sysinfo', 'quads_tools_sysinfo_download' );\n\n/*\n * Import settings from Quick AdSense reloaded  v. 1.9.2\n */\n\nfunction quads_import_quick_adsense_settings(){\n    // Check first if Quick AdSense is installed and version matches\n    if (!quads_check_quick_adsense_version())\n        return;\n   \n    \n        if( ! current_user_can( 'update_plugins' ) ) {\n\t\treturn;\n\t}\n    \n\tdo_action( 'quads_import_quick_adsense_settings_before' );\n?>\n\t<div class=\"quads-postbox\" id=\"quads-import-settings\">\n\t\t<h3><span><?php _e( 'Import from Quick AdSense', 'quick-adsense-reloaded' ); ?></span></h3>\n\t\t<div class=\"inside\">\n\t\t\t<p><?php _e( 'Import the settings for Quick AdSense Reloaded from Quick AdSense v. 1.9.2.', 'quick-adsense-reloaded' ); ?></p>\n\t\t\t\n\t\t\t<!--\n                        <form id=\"quads_quick_adsense_input\" method=\"post\" action=\"<?php echo admin_url( 'admin.php?page=quads-settings&tab=imexport' ); ?>\" onsubmit=\"return confirm('Importing the settings from Quick AdSense will overwrite all your current settings. Are you sure?');\">\n                        -->\n\t\t\t\t<p><input type=\"hidden\" name=\"quads-action\" value=\"import_quick_adsense\" /></p>\n\t\t\t\t<p>\n\t\t\t\t\t<?php wp_nonce_field( 'quads_quick_adsense_nonce', 'quads_quick_adsense_nonce' ); ?>\n\t\t\t\t\t<?php submit_button( __( 'Start Import process', 'quick-adsense-reloaded' ), 'primary quads-import-settings', 'submit', false ); ?>\n\t\t\t\t</p>\n\t\t\t<!--</form>-->\n                        <div id=\"quads-error-details\"></div>\n\t\t</div><!-- .inside -->\n\t</div><!-- .postbox -->\n<?php\n\tdo_action( 'quads_import_quick_adsense_settings_after' );\n}\nadd_action( 'quads_import_quick_adsense_settings', 'quads_import_quick_adsense_settings' );\n\n/**\n * Ajax process a settings import from Quick AdSense\n *\n * @since       0.9.0\n * @return      string json\n */\nfunction quads_import_quick_adsense_process() {\n\n        check_ajax_referer( 'quads_ajax_nonce', 'nonce' );\n\n\tif( ! current_user_can( 'manage_options' ) )\n\t\treturn;\n\n\tignore_user_abort( true );\n\n\tif ( ! quads_is_func_disabled( 'set_time_limit' ) )\n\t\tset_time_limit( 0 );\n        \n        \n        $quads_settings          = get_quick_adsense_setting();\n        $quads_reloaded_settings = get_option('quads_settings');\n        \n\n        if (update_option('quads_settings', $quads_settings ) ){\n            $message = __('Most of the settings have been sucessfully imported from Quick AdSense <br> but due to some inconsistencies there are still some options which needs your attention and manual adjusting.','quick-adsense-reloaded');\n            wp_send_json ( $message );\n        }\n\n        $message = __('Most of settings have been already imported successfully! (If not we probably have an unknown issue here)', 'quick-adsense-reloaded');\n        //$message = get_quick_adsense_setting();\n        wp_send_json ( $message );\n\n}\n//add_action( 'quads_import_quick_adsense', 'quads_import_quick_adsense_process' );\nadd_action('wp_ajax_quads_import_quick_adsense', 'quads_import_quick_adsense_process');\n\n/**\n * Check if Quick AdSense is installed and if version is 1.9.2\n * \n * @return boolean true when it is installed and version matches\n */\nfunction quads_check_quick_adsense_version(){\n    $plugin_file = 'quick-adsense/quick-adsense.php';\n    $plugin_abs_path = get_home_path() . '/wp-content/plugins/quick-adsense/quick-adsense.php';\n    $checkVersion = '1.9.2';\n    \n    if ( is_plugin_active( $plugin_file ) ) {\n        $plugin_data = get_plugin_data( $plugin_abs_path, $markup = true, $translate = true );\n        \n        if ($plugin_data['Version'] === $checkVersion)\n            return true;   \n    }\n    \n    if ( file_exists( $plugin_abs_path ) && is_plugin_inactive( $plugin_file ) ) {\n        $plugin_data = get_plugin_data( $plugin_abs_path, $markup = true, $translate = true );\n        \n        if ($plugin_data['Version'] === $checkVersion)\n            return true;   \n    }\n   \n}\n\n/**\n * Get all Quick AdSense settings and convert them to a Quick AdSense reloaded compatible array\n * \n * @since 0.9.0\n * @return array\n */\nfunction get_quick_adsense_setting() {\n    $amountAds = 10;\n    $amountWidgets = 10;\n    $settings = array();\n    $new_align = '';\n\n\n    for ( $i = 1; $i <= $amountAds; $i++ ) {\n        if( get_option( 'AdsCode' . $i ) != '' ) {\n            $settings['ad' . $i]['code'] = get_option( 'AdsCode' . $i );\n            $settings['ad' . $i]['margin'] = get_option( 'AdsMargin' . $i );\n            //$settings['ad' . $i]['align'] = get_option( 'AdsAlign' . $i );\n            // convert the old margin values into the new ones\n            $old_align = get_option( 'AdsAlign' . $i );\n            if (isset($old_align) && $old_align === '1'){ // right\n                $new_align = '0';\n            } else if(isset($old_align) && $old_align === '2'){ // center\n                $new_align = '1';\n            } else if(isset($old_align) &&$old_align === '3'){ // right\n                $new_align = '2';\n            } else if(isset($old_align) &&$old_align === '4'){ // none\n                $new_align = '3';\n            }\n            $settings['ad' . $i]['align'] = $new_align;\n        }\n    }\n    for ( $i = 1; $i <= $amountWidgets; $i++ ) {\n        if( get_option( 'WidCode' . $i ) != '' ) {\n            $settings['ad' . $i . '_widget'] = get_option( 'WidCode' . $i );\n        }\n    }\n    $settings['maxads'] = get_option( 'AdsDisp' );\n    $settings['pos1']['BegnAds'] = get_option( 'BegnAds' );\n    $settings['pos1']['BegnRnd'] = get_option( 'BegnRnd' );\n    $settings['pos2']['MiddAds'] = get_option( 'MiddAds' );\n    $settings['pos2']['MiddRnd'] = get_option( 'MiddRnd' );\n    $settings['pos3']['EndiAds'] = get_option( 'EndiAds' );\n    $settings['pos3']['EndiRnd'] = get_option( 'EndiRnd' );\n    $settings['pos4']['MoreAds'] = get_option( 'MoreAds' );\n    $settings['pos4']['MoreRnd'] = get_option( 'MoreRnd' );\n    $settings['pos5']['LapaAds'] = get_option( 'LapaAds' );\n    $settings['pos5']['LapaRnd'] = get_option( 'LapaRnd' );\n    $rc = 3;\n    $value = 5;\n    for ( $j = 1; $j <= $rc; $j++ ) {\n        $key = $value + $j;\n        $settings['pos' . $key]['Par' . $j . 'Ads'] = get_option( 'Par' . $j . 'Ads' );\n        $settings['pos' . $key]['Par' . $j . 'Rnd'] = get_option( 'Par' . $j . 'Rnd' );\n        $settings['pos' . $key]['Par' . $j . 'Nup'] = get_option( 'Par' . $j . 'Nup' );\n        $settings['pos' . $key]['Par' . $j . 'Con'] = get_option( 'Par' . $j . 'Con' );\n    }\n    $settings['pos9']['Img1Ads'] = get_option( 'Img1Ads' );\n    $settings['pos9']['Img1Rnd'] = get_option( 'Img1Rnd' );\n    $settings['pos9']['Img1Nup'] = get_option( 'Img1Nup' );\n    $settings['pos9']['Img1Con'] = get_option( 'Img1Con' );\n    //$settings['visibility']['AppPost'] = get_option( 'AppPost' );\n    //$settings['visibility']['AppPage'] = get_option( 'AppPage' );\n    $settings['visibility']['AppHome'] = get_option( 'AppHome' );\n    $settings['visibility']['AppCate'] = get_option( 'AppCate' );\n    $settings['visibility']['AppArch'] = get_option( 'AppArch' );\n    $settings['visibility']['AppTags'] = get_option( 'AppTags' );\n    $settings['visibility']['AppMaxA'] = get_option( 'AppMaxA' );\n    $settings['visibility']['AppSide'] = get_option( 'AppSide' );\n    $settings['visibility']['AppLogg'] = get_option( 'AppLogg' );\n    $settings['quicktags']['QckTags'] = get_option( 'QckTags' );\n    $settings['quicktags']['QckRnds'] = get_option( 'QckRnds' );\n    $settings['quicktags']['QckOffs'] = get_option( 'QckOffs' );\n    $settings['quicktags']['QckOfPs'] = get_option( 'QckOfPs' );\n    \n    // Get previous settings for AppPost and AppPage\n    $post_setting_old = (false !== get_option( 'AppPost' )) ? true : false;\n    $page_setting_old = (false !== get_option( 'AppPage' )) ? true : false;\n    // Store them in new array post_types\n    if (true === $post_setting_old && true === $page_setting_old) {\n        $settings['post_types'] = array('post', 'page');\n    } else if (true === $post_setting_old && false === $page_setting_old) {\n        $settings['post_types'] = array('post');\n    } else if (false === $post_setting_old && true === $page_setting_old) {\n        $settings['post_types'] = array('page');\n    }\n\n    $settings1 = quads_str_replace_json( \"true\", \"1\", $settings );\n    return $settings1;\n}\n\n/**\n * A faster way to replace the strings in multidimensional array is to json_encode() it, \n * do the str_replace() and then json_decode() it\n * \n * @param string $search\n * @param string $replace\n * @param array $subject\n * @return array\n */\nfunction quads_str_replace_json($search, $replace, $subject){\n     $stdClass = json_decode(str_replace($search, $replace, json_encode($subject)));\n     \n     return quads_object_to_array($stdClass);\n}\n\n\n\n\n",
+			"file": "wp-content/plugins/quick-adsense-reloaded/includes/admin/tools.php",
+			"file_size": 25755,
+			"file_write_time": 131818425800000000,
+			"settings":
+			{
+				"buffer_size": 25060,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "wp-content/themes/page5ph/template-parts/centerfold-layout.php",
+			"settings":
+			{
+				"buffer_size": 2993,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -586,7 +650,8 @@
 			"file": "wp-content/themes/page5ph/footer.php",
 			"settings":
 			{
-				"buffer_size": 6493,
+				"buffer_size": 6639,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -704,14 +769,14 @@
 	"expanded_folders":
 	[
 		"/Users/cbarrinuevo/code/page5.ph",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/js",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/js/bootstrap"
+		"/Users/cbarrinuevo/code/page5.ph/wp-content"
 	],
 	"file_history":
 	[
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/plugins/all-in-one-favicon/includes/settings-page.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-admin/includes/translation-install.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-admin/includes/deprecated.php",
+		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/what-new-layout.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/js/jquery.min.map",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/js/main.js",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/page-templates/page-banners/banner-home.php",
@@ -726,7 +791,6 @@
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/assets/_footer.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/category.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/centerfold-layout.php",
-		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/what-new-layout.php",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/scss/flexible-layout/pages/_page-banner.scss",
 		"/Users/cbarrinuevo/code/page5.ph/wp-content/themes/page5ph/template-parts/happenings-layout.php",
 		"/Users/cbarrinuevo/code/page5.ph/data/wocker/wp-config.php",
@@ -836,20 +900,18 @@
 		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/js/main.js",
 		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo_theme/page-templates/flexible-layouts/row-layouts/layout-column-two.php",
 		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo_theme/page-templates/flexible-layouts/row-layouts/layout-column-three.php",
-		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo_theme/page-templates/gengo-acf-layout.php",
-		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo_theme/footer.php",
-		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/scss/_responsive.scss",
-		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo/scss/site/_layout-2018.scss"
+		"/Users/cbarrinuevo/code/marketing_wp/wp-content/themes/gengo_theme/page-templates/gengo-acf-layout.php"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
 		"height": 101.0,
 		"where_history":
 		[
+			"/Users/cbarrinuevo/code/page5.ph/wp-content/plugins",
 			""
 		]
 	},
@@ -858,6 +920,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"screen_icon",
+			"facebool",
 			"default-slider",
 			"twitter-popup",
 			"'option'));",
@@ -983,9 +1047,7 @@
 			".'';",
 			".'';;",
 			".'';",
-			"get_posts",
-			"'p_posts', 'option'",
-			"echo get_"
+			"get_posts"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1016,15 +1078,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12494,
+						"buffer_size": 13283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7110,
-								7125
+								7896,
+								7910
 							]
 						],
 						"settings":
@@ -1125,8 +1187,8 @@
 								{
 									"1":
 									[
-										7125,
-										7126
+										7910,
+										7911
 									]
 								},
 								"icon":
@@ -1141,8 +1203,8 @@
 								{
 									"1":
 									[
-										7109,
-										7110
+										7895,
+										7896
 									]
 								},
 								"unmatched":
@@ -1214,27 +1276,27 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2380.0,
+						"translation.y": 2671.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "wp-content/themes/page5ph/template-parts/header/header-adver.php",
+					"file": "wp-content/themes/page5ph/template-parts/category-layout.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 313,
+						"buffer_size": 3549,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								313,
-								313
+								2728,
+								2728
 							]
 						],
 						"settings":
@@ -1247,8 +1309,8 @@
 								{
 									"1":
 									[
-										260,
-										263
+										3078,
+										3081
 									]
 								},
 								"icon":
@@ -1263,9 +1325,579 @@
 								{
 									"1":
 									[
-										1,
-										4
+										2995,
+										2998
 									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2725,
+										2727
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2725,
+										2727
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 338.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "wp-content/themes/page5ph/header.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								861,
+								861
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										854,
+										860
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										697,
+										703
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "wp-content/debug.log",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 50136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								50136,
+								50136
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 5927.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "wp-content/index.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 28,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
 								},
 								"unmatched":
 								{
@@ -1412,11 +2044,718 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "wp-admin/includes/deprecated.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 39173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31080,
+								31080
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										31201,
+										31202
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										31078,
+										31079
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 15729.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "wp-content/plugins/quick-adsense-reloaded/includes/admin/tools.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25060,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": false,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 7,
+					"file": "wp-content/themes/page5ph/template-parts/centerfold-layout.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2502,
+								2502
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2498,
+										2501
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2136,
+										2139
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 260.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "wp-content/themes/page5ph/template-parts/header/header-adver.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 313,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								279,
+								234
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										260,
+										263
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1,
+										4
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										281,
+										284
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										206,
+										209
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
 					"file": "wp-content/themes/page5ph/js/jquery.min.js",
 					"semi_transient": false,
 					"settings":
@@ -1592,11 +2931,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 10,
 					"file": "wp-content/themes/page5ph/js/bootstrap/popper.min.js",
 					"semi_transient": false,
 					"settings":
@@ -1772,11 +3111,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 11,
 					"file": "wp-content/themes/page5ph/js/bootstrap/bootstrap.min.js",
 					"semi_transient": false,
 					"settings":
@@ -1952,11 +3291,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 12,
 					"file": "wp-content/themes/page5ph/js/bootstrap/bootstrap.css",
 					"semi_transient": false,
 					"settings":
@@ -2132,11 +3471,11 @@
 						"translation.y": 116585.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 13,
 					"file": "wp-content/themes/page5ph/template-parts/custom-sidebar.php",
 					"semi_transient": false,
 					"settings":
@@ -2312,24 +3651,24 @@
 						"translation.y": 260.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 14,
 					"file": "wp-content/themes/page5ph/footer.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6493,
+						"buffer_size": 6639,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5307,
-								5252
+								6574,
+								6574
 							]
 						],
 						"settings":
@@ -2489,7 +3828,7 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1038.0,
+						"translation.y": 1261.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
@@ -2554,6 +3893,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"wp-admin/includes/de",
+				"wp-admin/includes/deprecated.php"
+			],
+			[
+				"wp-admin/includes/dep",
+				"wp-admin/includes/deprecated.php"
+			],
+			[
+				"wp-admin/includes/tra",
+				"wp-admin/includes/translation-install.php"
+			],
 			[
 				"page5ph/js/main",
 				"wp-content/themes/page5ph/js/main.js"
@@ -3053,18 +4404,6 @@
 			[
 				"wordpressseoadminclass-admin-asset",
 				"wp-content/plugins/wordpress-seo/admin/class-admin-asset-manager.php"
-			],
-			[
-				"themesgengolibgengo-shortcodes",
-				"wp-content/themes/gengo/lib/gengo-shortcodes.php"
-			],
-			[
-				"gengolanding.cs",
-				"wp-content/themes/gengo/scss/landing.scss"
-			],
-			[
-				"gengoheader-inner",
-				"wp-content/themes/gengo/template-parts/header-inner.php"
 			]
 		],
 		"width": 0.0

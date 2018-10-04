@@ -53,11 +53,16 @@
             }
           }
           .right-holder{
-            position: absolute;
-            right: 0;
-            top: 0;
+            position: relative;
+            padding-top: 10px;
             font-size: 15px;
             font-family: 'oswald', sans-serif;
+            @media (min-width: 992px){
+              position: absolute;
+              padding-top: 0;
+              right: 0;
+              top: -5px;
+            }
             span{
               margin-right: 10px;
               cursor: pointer;
