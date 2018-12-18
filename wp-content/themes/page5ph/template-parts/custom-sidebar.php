@@ -76,8 +76,10 @@
     }
     ?>
   </div>
-  <h4>Adverstisement</h4>
-  <div class="advertisement-container">
-    <?php dynamic_sidebar( 'sidebar_adsense' ); ?>
+  <div class="d-none">
+    <h4>Adverstisement</h4>
+    <div class="advertisement-container">
+      <?php dynamic_sidebar( 'sidebar_adsense' ); ?>
+    </div>
   </div>
 </aside><!-- #secondary -->

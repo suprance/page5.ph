@@ -28,7 +28,7 @@ get_header();
                     <div class="row">
                       <?php
                       $args = array(
-                        'posts_per_page' => 12,
+                        'posts_per_page' => 21,
                         'cat' => '4,5,6,7,8',
                       );
                       $q = new WP_Query( $args);

@@ -139,7 +139,7 @@ $menuArgs = array(
       </div>
     </footer>
   </div><!-- #page -->
-  <div class="container">
+  <div class="container d-none">
     <div class="row">
       <div class="col-12"><?php dynamic_sidebar( 'footer_adsense' ); ?></div>
     </div>
